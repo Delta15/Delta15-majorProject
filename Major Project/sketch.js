@@ -1,55 +1,59 @@
 let state = 1;
 let timerONE, timerTWO, timerTHREE, timerFOUR;
 
+function preload(){
+
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  timerONE = new Timer(300);
+  timerONE = new Timer(3000);
 }
 
 function draw() {
   if (state === 1) {
-    display();
+    intro();
     if (timerONE.isDone()) {
       state = 2;
-      timerTWO = new Timer(300);
+      timerTWO = new Timer(500);
     }
   }
   else if (state === 2) {
-    display2();
-    if (timerTWO.isDone()) {
-      state = 3;
-      timerTHREE = new Timer(300);
-    }
+    mainManu();
   }
   else if (state === 3) {
     display3();
     if (timerTHREE.isDone()) {
       state = 4;
-      timerFOUR = new Timer(300);
+      timerFOUR = new Timer(500);
     }
   }
   else if (state === 4) {
     display4();
     if (timerFOUR.isDone()) {
       state = 1;
-      timerONE.reset(0);
+      timerONE.reset(500);
     }
   }
 }
 
-function display(){
+function intro(){
   background(0);
   textAlign(CENTER,CENTER);
   fill(255);
   textSize(100);
   text("SAMPLE",width/2,height/2);
 }
-function display2(){
+function mainManu(){
   background(255,0,0);
   textAlign(CENTER,CENTER);
   fill(0);
   textSize(100);
   text("SAMPLE",width/2,height/2);
+  if (keyIsPressed || mouseIsPressed) {
+    state = 3;
+    timerTHREE = new Timer(500);
+  }
 }
 
 function display3(){
