@@ -10,6 +10,10 @@ function setup() {
   timerONE = new Timer(3000);
 }
 
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
 function draw() {
   if (state === 1) {
     intro();
@@ -19,7 +23,7 @@ function draw() {
     }
   }
   else if (state === 2) {
-    mainManu();
+    mainMenu();
   }
   else if (state === 3) {
     display3();
@@ -44,7 +48,7 @@ function intro(){
   textSize(100);
   text("SAMPLE",width/2,height/2);
 }
-function mainManu(){
+function mainMenu(){
   background(255,0,0);
   textAlign(CENTER,CENTER);
   fill(0);
