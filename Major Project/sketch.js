@@ -1,13 +1,15 @@
 let state = 1;
-let timerONE, timerTWO, timerTHREE, timerFOUR;
+let rainSfx;
+let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
-function preload(){
-
+function preload() {
+  rainSfx = loadSound("Music&Sounds/rain.wav");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  timerONE = new Timer(3000);
+  rainSfx.loop();
+  timerONE = new Timer(2000);
 }
 
 function windowResized() {
@@ -19,7 +21,7 @@ function draw() {
     intro();
     if (timerONE.isDone()) {
       state = 2;
-      timerTWO = new Timer(500);
+      timerTWO = new Timer(3000);
     }
   }
   else if (state === 2) {
@@ -29,51 +31,67 @@ function draw() {
     display3();
     if (timerTHREE.isDone()) {
       state = 4;
-      timerFOUR = new Timer(500);
+      timerFOUR = new Timer(3000);
     }
   }
   else if (state === 4) {
     display4();
     if (timerFOUR.isDone()) {
-      state = 1;
-      timerONE.reset(500);
+      state = 5;
+      timerFIVE = new Timer(3000);
+    }
+  }
+  else if (state === 5) {
+    display5();
+    if (timerFIVE.isDone()) {
+      // state = 6;
     }
   }
 }
 
-function intro(){
+function intro() {
   background(0);
-  textAlign(CENTER,CENTER);
+  textAlign(CENTER, CENTER);
   fill(255);
   textSize(100);
-  text("SAMPLE",width/2,height/2);
+  text("McRaven Tuazon", width / 2, height / 2 - 50);
+  text("CS30", width / 2, height / 2 + 50);
 }
-function mainMenu(){
-  background(255,0,0);
-  textAlign(CENTER,CENTER);
-  fill(0);
-  textSize(100);
-  text("SAMPLE",width/2,height/2);
-  if (keyIsPressed || mouseIsPressed) {
+
+function mainMenu() {
+  background(0);
+  textAlign(CENTER, CENTER);
+  fill(255);
+  textSize(50);
+  text("CLICK TO PLAY", width / 2, height / 2);
+  if (mouseIsPressed) {
     state = 3;
-    timerTHREE = new Timer(500);
+    timerTHREE = new Timer(3000);
   }
 }
 
-function display3(){
-  background(0,255,0);
-  textAlign(CENTER,CENTER);
+function display3() {
+  background(0, 255, 0);
+  textAlign(CENTER, CENTER);
   fill(255);
   textSize(100);
-  text("SAMPLE",width/2,height/2);
+  text("D3", width / 2, height / 2);
 }
 
-function display4(){
+function display4() {
   background(255);
-  textAlign(CENTER,CENTER);
+  textAlign(CENTER, CENTER);
   fill(0);
   textSize(100);
-  text("SAMPLE",width/2,height/2);
+  text("D4", width / 2, height / 2);
+}
+
+function display5() {
+  background(0, 255, 0);
+  textAlign(CENTER, CENTER);
+  fill(255);
+  textSize(100);
+  text("D5", width / 2, height / 2);
 }
 
 class Timer {
