@@ -1,15 +1,16 @@
 let state = 1;
-let rainSfx;
+let rainSfx, BGmusic;
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
+  BGmusic = loadSound("Music&Sounds/mask.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
-  timerONE = new Timer(2000);
+  timerONE = new Timer(5000);
 }
 
 function windowResized() {
@@ -67,6 +68,7 @@ function mainMenu() {
   if (mouseIsPressed) {
     state = 3;
     timerTHREE = new Timer(3000);
+    BGmusic.play();
   }
 }
 
