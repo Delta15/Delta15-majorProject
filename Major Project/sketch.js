@@ -68,7 +68,7 @@ function mainMenu() {
   if (mouseIsPressed) {
     state = 3;
     timerTHREE = new Timer(3000);
-    setVolume();
+    rainSfx.setVolume(0.5);
     BGmusic.play();
   }
 }
