@@ -10,6 +10,8 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
+  rainSfx.setVolume(0.5);
+  BGmusic.setVolume(1.0);
   timerONE = new Timer(5000);
 }
 
@@ -32,7 +34,7 @@ function draw() {
     display3();
     if (timerTHREE.isDone()) {
       state = 4;
-      timerFOUR = new Timer(3000);
+      timerFOUR = new Timer(12500);
     }
   }
   else if (state === 4) {
@@ -52,45 +54,41 @@ function draw() {
 
 function intro() {
   background(0);
-  textAlign(CENTER, CENTER);
-  fill(255);
-  textSize(100);
-  text("McRaven Tuazon", width / 2, height / 2 - 50);
-  text("CS30", width / 2, height / 2 + 50);
 }
 
 function mainMenu() {
   background(0);
   textAlign(CENTER, CENTER);
-  fill(255);
+  fill(255,0,0);
   textSize(50);
   text("CLICK TO PLAY", width / 2, height / 2);
   if (mouseIsPressed) {
     state = 3;
-    timerTHREE = new Timer(3000);
-    rainSfx.setVolume(0.5);
+    timerTHREE = new Timer(12500);
     BGmusic.play();
   }
 }
 
 function display3() {
-  background(0, 255, 0);
+  background(0);
   textAlign(CENTER, CENTER);
-  fill(255);
+  fill(255,0,0);
   textSize(100);
-  text("D3", width / 2, height / 2);
+  text("McRaven Tuazon", width / 2, height / 2 - 50);
+  text("CS30", width / 2, height / 2 + 50);
 }
 
 function display4() {
-  background(255);
+  background(0);
   textAlign(CENTER, CENTER);
-  fill(0);
+  fill(255,0,0);
   textSize(100);
-  text("D4", width / 2, height / 2);
+  text("Beneath the Mask", width / 2, height / 2 - 80);
+  text("Lyn Inaizumi", width / 2, height / 2) + 80;
 }
 
 function display5() {
-  background(0, 255, 0);
+  background(0);
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(100);
