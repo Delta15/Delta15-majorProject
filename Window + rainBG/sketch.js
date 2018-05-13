@@ -11,7 +11,7 @@ function setup() {
   rainSfx.loop();
   rainSfx.setVolume(0.2);
   BGmusic.setVolume(1.0);
-  BGmusic.play();
+  BGmusic.loop();
 }
 
 function draw() {
