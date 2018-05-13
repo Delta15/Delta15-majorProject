@@ -10,7 +10,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
-  rainSfx.setVolume(0.5);
+  rainSfx.setVolume(0.2);
   BGmusic.setVolume(1.0);
   timerONE = new Timer(5000);
 }
@@ -59,7 +59,7 @@ function draw() {
 
 function windowM() {
   fill(255);
-  rectMode(CENTER);
+  rectMode(CENTER, CENTER);
   rect(width/2 - 200,height/2 - 30,500,300);
   fill(0);
   rect(width/2 - 200,height/2 - 30,485,285);
@@ -103,7 +103,7 @@ function display4() {
 function display5() {
   background(0);
   textAlign(CENTER, CENTER);
-  fill(255);
+  fill(255,0,0);
   textSize(40);
   text("D5", width / 2 + 400, height / 2);
 }
