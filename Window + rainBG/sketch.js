@@ -1,5 +1,16 @@
+let rainSfx, BGmusic;
+
+function preload() {
+  rainSfx = loadSound("Music&Sounds/rain.wav");
+  BGmusic = loadSound("Music&Sounds/mask.mp3");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  rainSfx.loop();
+  rainSfx.setVolume(0.2);
+  BGmusic.setVolume(1.0);
+  BGmusic.play();
 }
 
 function draw() {
