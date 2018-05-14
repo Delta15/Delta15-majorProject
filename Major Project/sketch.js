@@ -106,7 +106,7 @@ function display5() {
   textAlign(CENTER, CENTER);
   fill(255,0,0);
   textSize(40);
-  text("D5", width / 2 + 400, height / 2);
+  text(" ", width / 2 + 400, height / 2);
 }
 
 class Timer {

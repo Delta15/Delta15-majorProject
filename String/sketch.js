@@ -1,6 +1,13 @@
 let x = 50;
+let testString;
+
+function preload(){
+  testString = loadSound("Music&Sounds/mask_ Bell and String.mp3");
+}
+
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  testString.loop();
 }
 
 function draw() {
