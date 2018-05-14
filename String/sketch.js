@@ -4,8 +4,6 @@ function setup() {
 }
 
 function draw() {
-  // background(0);
-  // rect(random(width), random(height), random(50, 200), random(50, 200));
   string();
 }
 
@@ -16,9 +14,6 @@ function windowResized() {
 function string(){
   background(0);
   x = x + random(50, windowWidth - 50);
-  if (x > width) {
-    x = 0;
-  }
   stroke(255,0,0);
   strokeWeight(5);
   line(x, 0, x, height);
