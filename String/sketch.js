@@ -1,6 +1,7 @@
 let x = 50;
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background(0);
 }
 
 function draw() {
@@ -12,8 +13,7 @@ function windowResized() {
 }
 
 function string(){
-  background(0);
-  x = x + random(50, windowWidth - 50);
+  x = random(50, windowWidth - 50);
   stroke(255,0,0);
   strokeWeight(5);
   line(x, 0, x, height);
