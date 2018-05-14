@@ -1,6 +1,6 @@
 let state = 1;
 let rainSfx, BGmusic, musicENDS;
-//music length 00:04:39
+//music length 4 minute 39 second or 279000 millisecond
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
 function preload() {
@@ -46,18 +46,14 @@ function draw() {
     windowM();
     if (timerFOUR.isDone()) {
       state = 5;
-      timerFIVE = new Timer(3000);
     }
   }
   else if (state === 5) {
     display5();
     windowM();
-    if (timerFIVE.isDone()) {
-      // state = 6;
+    if (musicENDS.isDone()) {
+      state = 2;
     }
-  }
-  else if (musicENDS.isDone()) {
-    state = 2;
   }
 }
 
@@ -82,11 +78,11 @@ function mainMenu() {
   if (mouseIsPressed) {
     state = 3;
     timerTHREE = new Timer(12500);
-    musicENDS = new Timer (43900);
+    musicENDS = new Timer (279000);
     BGmusic.play();
   }
 }
-
+//Name and Class
 function display3() {
   background(0);
   textAlign(CENTER, CENTER);
@@ -95,7 +91,7 @@ function display3() {
   text("McRaven Tuazon", width / 2 + 400, height / 2 - 50);
   text("CS30", width / 2 + 400, height / 2 + 50);
 }
-
+//Name of song and singer
 function display4() {
   background(0);
   textAlign(CENTER, CENTER);
