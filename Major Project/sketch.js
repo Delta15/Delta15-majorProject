@@ -1,5 +1,6 @@
 let state = 1;
-let rainSfx, BGmusic;
+let rainSfx, BGmusic, musicENDS;
+//music length 00:04:39
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
 function preload() {
@@ -55,6 +56,9 @@ function draw() {
       // state = 6;
     }
   }
+  else if (musicENDS.isDone()) {
+    state = 2;
+  }
 }
 
 function windowM() {
@@ -78,6 +82,7 @@ function mainMenu() {
   if (mouseIsPressed) {
     state = 3;
     timerTHREE = new Timer(12500);
+    musicENDS = new Timer (43900);
     BGmusic.play();
   }
 }
