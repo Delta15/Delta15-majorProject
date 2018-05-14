@@ -16,6 +16,14 @@ function setup() {
 
 function draw() {
   background(0);
+  windowM();
+}
+
+function lyrics(){
+
+}
+
+function windowM(){
   fill(255);
   rectMode(CENTER);
   rect(width/2 - 200,height/2 - 30,500,300);
