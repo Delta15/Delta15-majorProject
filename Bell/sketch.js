@@ -1,4 +1,6 @@
 let testBell;
+let grow = 0;
+let wait;
 
 function preload(){
   testBell = loadSound("Music&Sounds/mask_ Bell and String.mp3");
@@ -8,10 +10,31 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   background(0);
   testBell.loop();
+  wait = new Timer(723);
 }
 
 function draw() {
   background(0);
+  if (wait.isDone()) {
+    background(255);
+    bell();
+  }
+}
+
+function bell(){
+  grow = grow + 11;
+  if (grow > 100) {
+    // grow = 0;
+    noLoop();
+  }
+  noStroke();
+  fill(255,0,0);
+  ellipse(Pos(),Pos(),grow,grow);
+}
+
+function Pos(){
+  random(50, 500);
+  noLoop();
 }
 
 function windowResized() {
