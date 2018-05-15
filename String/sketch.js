@@ -1,5 +1,6 @@
 let x = 50;
 let testString;
+let wait;
 
 function preload(){
   testString = loadSound("Music&Sounds/mask_ Bell and String.mp3");
@@ -8,11 +9,14 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   testString.loop();
+  wait = new Timer(1290);
 }
 
 function draw() {
   background(0);
-  string();
+  if (wait.isDone()) {
+    string();
+  }
 }
 
 function windowResized() {
