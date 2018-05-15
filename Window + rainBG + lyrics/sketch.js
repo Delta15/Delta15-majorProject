@@ -1,6 +1,15 @@
+//main music and rain sound effect
 let rainSfx, BGmusic;
+//text that change when timer is done
 let lyricsText = " ";
-let lONE, lTWO, lTHREE;
+//Verse1
+let Vone, Vtwo, Vthree, Vfour, Vfive, Vsix, Vseven, Veight;
+
+//Chorus
+let Cone, Ctwo, Cthree, Cfour, Csix, Cseven, Ceight;
+
+//Verse 2
+let V2one, V2two, V2three, V2four, V2five, V2six, V2seven, 
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
@@ -13,33 +22,59 @@ function setup() {
   rainSfx.setVolume(0.2);
   BGmusic.setVolume(1.0);
   BGmusic.play();
-  lONE = new Timer(25000);
-  lTWO = new Timer(30000);
-  // lTHREE = new Timer()
+
+  //Verse 1//
+  Vone = new Timer(25500);
+  Vtwo = new Timer(29000);
+  Vthree = new Timer(32500);
+  Vfour = new Timer(36000);
+  Vfive = new Timer(39000);
+  Vsix = new Timer(42000);
+  Vseven = new Timer(45000);
+  Veight = new Timer(48000);
+
+  // Chorus //
 
 }
 
 function draw() {
   background(0);
   windowM();
-  if (lONE.isDone()) {
-    lyricsText = "Where have you been?";
-    lyrics();
-  }
-  else if (lTWO.isDone()) {
-    lyricsText = "Been searching all along";
-    lyrics();
-  }
-  else if (lTHREE.isDone()) {
-    lyricsText = "Came facing twilight on and on";
-    lyrics();
-  }
+  lyrics();
 }
 
 function lyrics(){
+  // settings of lyrics
   fill(255,0,0);
   textSize(40);
   text(lyricsText,width / 2 + 400, height / 2);
+
+  // Verse 1 //
+  if (Vone.isDone()) {
+    lyricsText = "Where have you been?";
+  }
+  if (Vtwo.isDone()) {
+    lyricsText = "Been searching all along";
+  }
+  if (Vthree.isDone()) {
+    lyricsText = "Came facing twilight on and on";
+  }
+  if (Vfour.isDone()) {
+    lyricsText = "Without a clue";
+  }
+  if (Vfive.isDone()) {
+    lyricsText = "Without a sign";
+  }
+  if (Vsix.isDone()) {
+    lyricsText = "Without grasping yet";
+  }
+  if (Vseven.isDone()) {
+    lyricsText = "The real question to be asked";
+  }
+  if (Veight.isDone()) {
+    lyricsText = "Where have I been?";
+  }
+  // Chorus //
 }
 
 function windowM(){
