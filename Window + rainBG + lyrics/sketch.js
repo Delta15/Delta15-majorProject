@@ -1,5 +1,6 @@
 let rainSfx, BGmusic;
-let lyricsText = " Where have you been?";
+let lyricsText = " ";
+let lONE, lTWO, lTHREE;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
@@ -11,16 +12,34 @@ function setup() {
   rainSfx.loop();
   rainSfx.setVolume(0.2);
   BGmusic.setVolume(1.0);
-  BGmusic.loop();
+  BGmusic.play();
+  lONE = new Timer(25000);
+  lTWO = new Timer(30000);
+  // lTHREE = new Timer()
+
 }
 
 function draw() {
   background(0);
   windowM();
+  if (lONE.isDone()) {
+    lyricsText = "Where have you been?";
+    lyrics();
+  }
+  else if (lTWO.isDone()) {
+    lyricsText = "Been searching all along";
+    lyrics();
+  }
+  else if (lTHREE.isDone()) {
+    lyricsText = "Came facing twilight on and on";
+    lyrics();
+  }
 }
 
 function lyrics(){
-
+  fill(255,0,0);
+  textSize(40);
+  text(lyricsText,width / 2 + 400, height / 2);
 }
 
 function windowM(){
