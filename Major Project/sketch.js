@@ -2,6 +2,10 @@
 //Cs30
 //15-May-2018
 
+//Reference
+// https://genius.com/Lyn-inaizumi-beneath-the-mask-annotated
+//https://www.youtube.com/watch?v=h012heXDB7o
+
 //music length 4 minute 39 second or 279000 millisecond
 let state = 1;
 //main music and rain sound effect
