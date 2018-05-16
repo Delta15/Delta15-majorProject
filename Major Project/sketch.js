@@ -6,10 +6,10 @@
 // https://genius.com/Lyn-inaizumi-beneath-the-mask-annotated
 //https://www.youtube.com/watch?v=h012heXDB7o
 
-//music length 4 minute 39 second or 279000 millisecond
 let state = 1;
 //main music and rain sound effect
 let rainSfx, BGmusic, musicENDS;
+
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
 //text that change when timer is done
@@ -38,7 +38,9 @@ let C3one, C3two, C3three, C3four, C3five, C3six, C3seven, C3eight;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
+  //A looping sound of rain
   BGmusic = loadSound("Music&Sounds/mask.mp3");
+  //music length 4 minute 39 second or 279000 millisecond
 }
 
 function setup() {
@@ -188,7 +190,7 @@ function mainMenu() {
 function nameAndclass() {
   background(0);
   textAlign(LEFT, CENTER);
-  textLeading(10);
+  textLeading(20);
   fill(255,0,0);
   textSize(50);
   text("McRaven Tuazon\nCS30", width / 2 + 200, height / 2);
@@ -197,7 +199,7 @@ function nameAndclass() {
 function nameSongAndsinger() {
   background(0);
   textAlign(LEFT, CENTER);
-  textLeading(10);
+  textLeading(20);
   fill(255,0,0);
   textSize(50);
   text("Beneath the Mask\nLyn Inaizumi", width / 2 + 200, height / 2);
@@ -211,7 +213,7 @@ function lyrics(){
   // settings of lyrics
   textAlign(LEFT, CENTER);
   fill(255,0,0);
-  textSize(40);
+  textSize(50);
   text(lyricsText,width / 2 + 200, height / 2);
 
   // Verse 1 //
