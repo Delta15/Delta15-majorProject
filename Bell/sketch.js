@@ -22,19 +22,14 @@ function draw() {
 }
 
 function bell(){
-  grow = grow + 11;
-  if (grow > 100) {
-    // grow = 0;
-    noLoop();
+  grow = grow + 2;
+  if (grow > 500) {
+    grow = 0;
+    // noLoop();
   }
   noStroke();
   fill(255,0,0);
-  ellipse(Pos(),Pos(),grow,grow);
-}
-
-function Pos(){
-  random(50, 500);
-  noLoop();
+  ellipse(windowWidth/2,windowHeight/2,grow,grow);
 }
 
 function windowResized() {
