@@ -40,7 +40,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
-  rainSfx.setVolume(0.2);
+  rainSfx.setVolume(0.3);
   BGmusic.setVolume(1.0);
   timerONE = new Timer(5000);
 }
@@ -90,9 +90,9 @@ function draw() {
 function windowM() {
   fill(255);
   rectMode(CENTER, CENTER);
-  rect(width/2 - 200,height/2 - 30,500,300);
+  rect(width/2 - 350,height/2,500,800);
   fill(0);
-  rect(width/2 - 200,height/2 - 30,485,285);
+  rect(width/2 - 350,height/2,485,785);
 }
 
 function intro() {
@@ -101,10 +101,10 @@ function intro() {
 
 function mainMenu() {
   background(0);
-  textAlign(CENTER, CENTER);
+  textAlign(LEFT, CENTER);
   fill(255,0,0);
-  textSize(40);
-  text("CLICK TO PLAY", width / 2 + 300, height / 2);
+  textSize(50);
+  text("CLICK TO PLAY", width / 2 + 200, height / 2);
   if (mouseIsPressed) {
     state = 3;
     timerTHREE = new Timer(12500);
@@ -183,28 +183,24 @@ function mainMenu() {
 //Name and Class
 function nameAndclass() {
   background(0);
+  textAlign(LEFT, CENTER);
   textLeading(10);
-  textAlign(CENTER, CENTER);
   fill(255,0,0);
-  textSize(40);
-  text("McRaven Tuazon\nCS30", width / 2 + 300, height / 2);
+  textSize(50);
+  text("McRaven Tuazon\nCS30", width / 2 + 200, height / 2);
 }
 //Name of song and singer
 function nameSongAndsinger() {
   background(0);
+  textAlign(LEFT, CENTER);
   textLeading(10);
-  textAlign(CENTER, CENTER);
   fill(255,0,0);
-  textSize(40);
-  text("Beneath the Mask\nLyn Inaizumi", width / 2 + 300, height / 2);
+  textSize(50);
+  text("Beneath the Mask\nLyn Inaizumi", width / 2 + 200, height / 2);
 }
 
 function DisPlaylyrics() {
   background(0);
-  textAlign(CENTER, CENTER);
-  fill(255,0,0);
-  textSize(40);
-  text(" ", width / 2 + 300, height / 2);
 }
 
 function lyrics(){
@@ -212,7 +208,7 @@ function lyrics(){
   textAlign(LEFT, CENTER);
   fill(255,0,0);
   textSize(40);
-  text(lyricsText,width / 2 + 250, height / 2);
+  text(lyricsText,width / 2 + 200, height / 2);
 
   // Verse 1 //
   if (Vone.isDone()) {
