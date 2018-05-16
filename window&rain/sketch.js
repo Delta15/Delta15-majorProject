@@ -7,17 +7,20 @@
 //https://www.youtube.com/watch?v=h012heXDB7o
 
 //rain sound effect
-let rainSfx;
+let rainSfx, maskInt;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
   //A looping sound of rain
+  maskInt = loadSound("Music&Sounds/Mask-Instrumental.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
   rainSfx.setVolume(0.3);
+  maskInt.play();
+  maskInt.setVolume(1.0);
 }
 
 function windowResized() {
