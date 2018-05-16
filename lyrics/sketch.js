@@ -118,9 +118,10 @@ function draw() {
 
 function lyrics(){
   // settings of lyrics
+  textAlign(LEFT, CENTER);
   fill(255,0,0);
   textSize(40);
-  text(lyricsText,width / 2 + 250, height / 2);
+  text(lyricsText,width / 2 + 200, height / 2);
 
   // Verse 1 //
   if (Vone.isDone()) {
