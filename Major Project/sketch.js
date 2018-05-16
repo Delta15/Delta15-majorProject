@@ -2,10 +2,10 @@
 //Cs30
 //15-May-2018
 
+//music length 4 minute 39 second or 279000 millisecond
 let state = 1;
 //main music and rain sound effect
 let rainSfx, BGmusic, musicENDS;
-//music length 4 minute 39 second or 279000 millisecond
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
 //text that change when timer is done
