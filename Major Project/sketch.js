@@ -63,7 +63,7 @@ function draw() {
     windowM();
   }
   else if (state === 3) {
-    display3();
+    nameAndclass();
     windowM();
     if (timerTHREE.isDone()) {
       state = 4;
@@ -71,14 +71,14 @@ function draw() {
     }
   }
   else if (state === 4) {
-    display4();
+    nameSongAndsinger();
     windowM();
     if (timerFOUR.isDone()) {
       state = 5;
     }
   }
   else if (state === 5) {
-    display5();
+    DisPlaylyrics();
     windowM();
     lyrics();
     if (musicENDS.isDone()) {
@@ -104,7 +104,7 @@ function mainMenu() {
   textAlign(CENTER, CENTER);
   fill(255,0,0);
   textSize(40);
-  text("CLICK TO PLAY", width / 2 + 250, height / 2);
+  text("CLICK TO PLAY", width / 2 + 300, height / 2);
   if (mouseIsPressed) {
     state = 3;
     timerTHREE = new Timer(12500);
@@ -181,34 +181,35 @@ function mainMenu() {
   }
 }
 //Name and Class
-function display3() {
+function nameAndclass() {
   background(0);
+  textLeading(10);
   textAlign(CENTER, CENTER);
   fill(255,0,0);
   textSize(40);
-  text("McRaven Tuazon", width / 2 + 250, height / 2 - 50);
-  text("CS30", width / 2 + 250, height / 2 + 50);
+  text("McRaven Tuazon\nCS30", width / 2 + 300, height / 2);
 }
 //Name of song and singer
-function display4() {
+function nameSongAndsinger() {
   background(0);
+  textLeading(10);
   textAlign(CENTER, CENTER);
   fill(255,0,0);
   textSize(40);
-  text("Beneath the Mask", width / 2 + 250, height / 2 - 80);
-  text("Lyn Inaizumi", width / 2 + 250, height / 2) + 80;
+  text("Beneath the Mask\nLyn Inaizumi", width / 2 + 300, height / 2);
 }
 
-function display5() {
+function DisPlaylyrics() {
   background(0);
   textAlign(CENTER, CENTER);
   fill(255,0,0);
   textSize(40);
-  text(" ", width / 2 + 250, height / 2);
+  text(" ", width / 2 + 300, height / 2);
 }
 
 function lyrics(){
   // settings of lyrics
+  textAlign(LEFT, CENTER);
   fill(255,0,0);
   textSize(40);
   text(lyricsText,width / 2 + 250, height / 2);
