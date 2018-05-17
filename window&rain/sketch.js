@@ -52,7 +52,7 @@ function rainAni(){
     y = -200;
     y2 = -100;
   }
-  strokeWeight(20);
+  strokeWeight(50);
   stroke(255,0,0);
   line(windowWidth/2,y,windowWidth/2,y2);
 }
