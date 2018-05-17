@@ -118,6 +118,7 @@ function draw() {
 
 function lyrics(){
   // settings of lyrics
+  textLeading(30);
   textAlign(LEFT, CENTER);
   fill(255,0,0);
   textSize(40);
@@ -125,54 +126,54 @@ function lyrics(){
 
   // Verse 1 //
   if (Vone.isDone()) {
-    lyricsText = "Where have you been?";
+    lyricsText = "Verse\nWhere have you been?";
   }
   if (Vtwo.isDone()) {
     lyricsText = "Been searching all along";
   }
   if (Vthree.isDone()) {
-    lyricsText = "Came facing twilight on and on";
+    lyricsText = "Verse\nCame facing twilight on and on";
   }
   if (Vfour.isDone()) {
-    lyricsText = "Without a clue";
+    lyricsText = "Verse\nWithout a clue";
   }
   if (Vfive.isDone()) {
-    lyricsText = "Without a sign";
+    lyricsText = "Verse\nWithout a sign";
   }
   if (Vsix.isDone()) {
-    lyricsText = "Without grasping yet";
+    lyricsText = "Verse\nWithout grasping yet";
   }
   if (Vseven.isDone()) {
-    lyricsText = "The real question to be asked";
+    lyricsText = "Verse\nThe real question to be asked";
   }
   if (Veight.isDone()) {
-    lyricsText = "Where have I been?";
+    lyricsText = "Verse\nWhere have I been?";
   }
 
   // Chorus //
   if (Cone.isDone()) {
-    lyricsText = "I'm a shapeshifter";
+    lyricsText = "Chorus\nI'm a shapeshifter";
   }
   if (Ctwo.isDone()) {
-    lyricsText = "At Poe's masquerade";
+    lyricsText = "Chorus\nAt Poe's masquerade";
   }
   if (Cthree.isDone()) {
-    lyricsText = "Hiding both face and mind";
+    lyricsText = "Chorus\nHiding both face and mind";
   }
   if (Cfour.isDone()) {
-    lyricsText = "All free for you to draw";
+    lyricsText = "Chorus\nAll free for you to draw";
   }
   if (Cfive.isDone()) {
-    lyricsText = "I'm a shapeshifter";
+    lyricsText = "Chorus\nI'm a shapeshifter";
   }
   if (Csix.isDone()) {
-    lyricsText = "What else should I be?";
+    lyricsText = "Chorus\nWhat else should I be?";
   }
   if (Cseven.isDone()) {
-    lyricsText = "Please don't take off my mask";
+    lyricsText = "Chorus\nPlease don't take off my mask";
   }
   if (Ceight.isDone()) {
-    lyricsText = "Revealing dark";
+    lyricsText = "Chorus\nRevealing dark";
   }
 
   // hide lyricsText //
@@ -182,54 +183,54 @@ function lyrics(){
 
   // Verse 2 //
   if (V2one.isDone()) {
-    lyricsText = "Moments of calm";
+    lyricsText = "Verse 2\nMoments of calm";
   }
   if (V2two.isDone()) {
-    lyricsText = "Nothing left to be found";
+    lyricsText = "Verse 2\nNothing left to be found";
   }
   if (V2three.isDone()) {
-    lyricsText = "A mirror right in front of me";
+    lyricsText = "Verse 2\nA mirror right in front of me";
   }
   if (V2four.isDone()) {
-    lyricsText = "That's where I find";
+    lyricsText = "Verse 2\nThat's where I find";
   }
   if (V2five.isDone()) {
-    lyricsText = "An empty glass";
+    lyricsText = "Verse 2\nAn empty glass";
   }
   if (V2six.isDone()) {
-    lyricsText = "Reflecting the sad truth";
+    lyricsText = "Verse 2\nReflecting the sad truth";
   }
   if (V2seven.isDone()) {
-    lyricsText = "It's telling words not to be told";
+    lyricsText = "Verse 2\nIt's telling words not to be told";
   }
   if (V2eight.isDone()) {
-    lyricsText = "I need the mask";
+    lyricsText = "Verse 2\nI need the mask";
   }
 
   // Chorus2 //
   if (C2one.isDone()) {
-    lyricsText = "I'm a shapeshifter";
+    lyricsText = "Chorus2\nI'm a shapeshifter";
   }
   if (C2two.isDone()) {
-    lyricsText = "At Poe's masquerade";
+    lyricsText = "Chorus2\nAt Poe's masquerade";
   }
   if (C2three.isDone()) {
-    lyricsText = "Hiding both face and mind";
+    lyricsText = "Chorus2\nHiding both face and mind";
   }
   if (C2four.isDone()) {
-    lyricsText = "All free for you to draw";
+    lyricsText = "Chorus2\nAll free for you to draw";
   }
   if (C2five.isDone()) {
-    lyricsText = "I'm a shapeshifter";
+    lyricsText = "Chorus2\nI'm a shapeshifter";
   }
   if (C2six.isDone()) {
-    lyricsText = "Chained down to my core";
+    lyricsText = "Chorus2\nChained down to my core";
   }
   if (C2seven.isDone()) {
-    lyricsText = "Please don't take off my mask";
+    lyricsText = "Chorus2\nPlease don't take off my mask";
   }
   if (C2eight.isDone()) {
-    lyricsText = "My place to hide";
+    lyricsText = "Chorus2\nMy place to hide";
   }
 
   // hidetext2 //
@@ -239,54 +240,54 @@ function lyrics(){
 
   // Bridge //
   if (bOne.isDone()) {
-    lyricsText = "I can't tell you";
+    lyricsText = "Bridge\nI can't tell you";
   }
   if (bTwo.isDone()) {
-    lyricsText = "How to see me";
+    lyricsText = "Bridge\nHow to see me";
   }
   if (bThree.isDone()) {
-    lyricsText = "Just a cage of bones";
+    lyricsText = "Bridge\nJust a cage of bones";
   }
   if (bFour.isDone()) {
-    lyricsText = "There's nothing inside";
+    lyricsText = "Bridge\nThere's nothing inside";
   }
   if (bFive.isDone()) {
-    lyricsText = "Will it unleash me?";
+    lyricsText = "Bridge\nWill it unleash me?";
   }
   if (bSix.isDone()) {
-    lyricsText = "Burning down the walls";
+    lyricsText = "Bridge\nBurning down the walls";
   }
   if (bSeven.isDone()) {
-    lyricsText = "Is there a way";
+    lyricsText = "Bridge\nIs there a way";
   }
   if (bEight.isDone()) {
-    lyricsText = "For me to break?";
+    lyricsText = "Bridge\nFor me to break?";
   }
 
   // Chorus3 //
   if (C3one.isDone()) {
-    lyricsText = "I'm a shapeshifter";
+    lyricsText = "Chorus3\nI'm a shapeshifter";
   }
   if (C3two.isDone()) {
-    lyricsText = "At Poe's masquerade";
+    lyricsText = "Chorus3\nAt Poe's masquerade";
   }
   if (C3three.isDone()) {
-    lyricsText = "Hiding both face and mind";
+    lyricsText = "Chorus3\nHiding both face and mind";
   }
   if (C3four.isDone()) {
-    lyricsText = "All free for you to draw";
+    lyricsText = "Chorus3\nAll free for you to draw";
   }
   if (C3five.isDone()) {
-    lyricsText = "I'm a shapeshifter";
+    lyricsText = "Chorus3\nI'm a shapeshifter";
   }
   if (C3six.isDone()) {
-    lyricsText = "Have no face to show";
+    lyricsText = "Chorus3\nHave no face to show";
   }
   if (C3seven.isDone()) {
-    lyricsText = "Please don't take off my mask";
+    lyricsText = "Chorus3\nPlease don't take off my mask";
   }
   if (C3eight.isDone()) {
-    lyricsText = "My disguise";
+    lyricsText = "Chorus3\nMy disguise";
   }
 
   // hidetext3 //
