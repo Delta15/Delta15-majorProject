@@ -399,6 +399,7 @@ function lyrics(){
 
   //end credits
   if (credits.isDone()) {
+    textLeading(20);
     lyricsText = "Beneath the Mask\nLyn Inaizumi\nMcRaven Tuazon\nCS30";
   }
 
