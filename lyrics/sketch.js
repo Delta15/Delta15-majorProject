@@ -13,7 +13,7 @@ let Vone, Vtwo, Vthree, Vfour, Vfive, Vsix, Vseven, Veight;
 //Chorus
 let Cone, Ctwo, Cthree, Cfour, Cfive, Csix, Cseven, Ceight;
 
-//hid text inbetween Chorus and Verse 2
+//hid text
 let hidetext, hidetext2, hidetext3;
 
 //Verse 2
@@ -118,10 +118,10 @@ function draw() {
 
 function lyrics(){
   // settings of lyrics
-  textLeading(30);
+  textLeading(40);
   textAlign(LEFT, CENTER);
   fill(255,0,0);
-  textSize(40);
+  textSize(50);
   text(lyricsText,width / 2 + 200, height / 2);
 
   // Verse 1 //
@@ -129,7 +129,7 @@ function lyrics(){
     lyricsText = "Verse\nWhere have you been?";
   }
   if (Vtwo.isDone()) {
-    lyricsText = "Been searching all along";
+    lyricsText = "Verse\nBeen searching all along";
   }
   if (Vthree.isDone()) {
     lyricsText = "Verse\nCame facing twilight on and on";
