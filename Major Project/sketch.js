@@ -22,7 +22,7 @@ let Vone, Vtwo, Vthree, Vfour, Vfive, Vsix, Vseven, Veight;
 let Cone, Ctwo, Cthree, Cfour, Cfive, Csix, Cseven, Ceight;
 
 //hid text
-let hidetext, hidetext2, hidetext3;
+let hidetext, hidetext2, hidetext3, hidetext4;
 
 //Verse 2
 let V2one, V2two, V2three, V2four, V2five, V2six, V2seven, V2eight;
@@ -35,6 +35,9 @@ let bOne,bTwo,bThree,bFour,bFive,bSix,bSeven,bEight;
 
 //Chorus3
 let C3one, C3two, C3three, C3four, C3five, C3six, C3seven, C3eight;
+
+//end credits
+let credits;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
@@ -183,6 +186,13 @@ function mainMenu() {
 
     //hidetext
     hidetext3 = new Timer(235000);
+
+    //end credits
+    credits = new Timer(245000);
+
+    //hidetext
+    hidetext4 = new Timer(255000);
+
     BGmusic.play();
   }
 }
@@ -384,6 +394,16 @@ function lyrics(){
 
   // hidetext3 //
   if (hidetext3.isDone()) {
+    lyricsText = " ";
+  }
+
+  //end credits
+  if (credits.isDone()) {
+    lyricsText = "Beneath the Mask\nLyn Inaizumi\nMcRaven Tuazon\nCS30";
+  }
+
+  // hidetext 4 //
+  if (hidetext4.isDone()) {
     lyricsText = " ";
   }
 }
