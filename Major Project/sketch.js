@@ -118,8 +118,8 @@ function mainMenu() {
     //Verse 1//
     Vone = new Timer(25500);
     Vtwo = new Timer(29000);
-    Vthree = new Timer(32500);
-    Vfour = new Timer(36000);
+    Vthree = new Timer(32000);
+    Vfour = new Timer(35000);
     Vfive = new Timer(39000);
     Vsix = new Timer(42000);
     Vseven = new Timer(45000);
