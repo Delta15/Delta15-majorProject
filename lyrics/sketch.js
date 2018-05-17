@@ -5,7 +5,7 @@
 //main music and rain sound effect
 let rainSfx, BGmusic;
 //text that change when timer is done
-let lyricsText = " ";
+let lyricsText = "Beneath the Mask\nLyn Inaizumi";
 
 //Verse1
 let Vone, Vtwo, Vthree, Vfour, Vfive, Vsix, Vseven, Veight;
@@ -43,8 +43,8 @@ function setup() {
   //Verse 1//
   Vone = new Timer(25500);
   Vtwo = new Timer(29000);
-  Vthree = new Timer(32500);
-  Vfour = new Timer(36000);
+  Vthree = new Timer(32000);
+  Vfour = new Timer(35000);
   Vfive = new Timer(39000);
   Vsix = new Timer(42000);
   Vseven = new Timer(45000);
