@@ -8,6 +8,9 @@
 
 //rain sound effect
 let rainSfx, maskInt;
+let y = 0;
+let y2 = 100;
+let z = 0;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
@@ -28,7 +31,9 @@ function windowResized() {
 }
 
 function draw() {
-  windowM();
+  background(0);
+  // windowM();
+  rainAni();
 }
 
 function windowM() {
@@ -38,6 +43,18 @@ function windowM() {
   rect(width/2 - 350,height/2,500,800);
   fill(0);
   rect(width/2 - 350,height/2,485,785);
+}
+
+function rainAni(){
+  y = y + 50;
+  y2 = y2 + 50;
+  if (y > windowHeight + 1000) {
+    y = -200;
+    y2 = -100;
+  }
+  strokeWeight(20);
+  stroke(255,0,0);
+  line(windowWidth/2,y,windowWidth/2,y2);
 }
 
 
