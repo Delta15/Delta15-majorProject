@@ -37,17 +37,13 @@ function draw() {
 }
 
 function windowM() {
-  fill(255,0,0);
-  rectMode(CENTER, CENTER);
-  rect(width/2 - 350,height/2,500,800);
-  push();
+  fill(0);
   noStroke();
   rectMode(CORNER);
   rect(0,0,windowWidth,windowHeight/2 - 400);
   rect(0,0,windowWidth/2 - 600,windowHeight);
-  pop();
-  fill(0);
-  rect(width/2 - 350,height/2,485,785);
+  rect(0,windowHeight/2 + 400,windowWidth,windowHeight);
+  rect(windowWidth/2 - 100,0,windowWidth,windowHeight);
 }
 
 function rainAni(){
@@ -60,7 +56,7 @@ function rainAni(){
   push();
   strokeWeight(10);
   stroke(255,0,0);
-  line(windowWidth/2,y,windowWidth/2,y2);
+  line(windowWidth/2 - 250,y,windowWidth/2 -250,y2);
   pop();
 }
 
