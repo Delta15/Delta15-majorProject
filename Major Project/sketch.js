@@ -48,6 +48,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background(0);
   rainSfx.loop();
   rainSfx.setVolume(0.3);
   BGmusic.setVolume(1.0);
@@ -60,7 +61,6 @@ function windowResized() {
 
 function draw() {
   if (state === 1) {
-    intro();
     windowM();
     if (timerONE.isDone()) {
       state = 2;
@@ -68,26 +68,25 @@ function draw() {
     }
   }
   else if (state === 2) {
-    mainMenu();
     windowM();
+    mainMenu();
   }
   else if (state === 3) {
-    nameAndclass();
     windowM();
+    nameAndclass();
     if (timerTHREE.isDone()) {
       state = 4;
       timerFOUR = new Timer(12500);
     }
   }
   else if (state === 4) {
-    nameSongAndsinger();
     windowM();
+    nameSongAndsinger();
     if (timerFOUR.isDone()) {
       state = 5;
     }
   }
   else if (state === 5) {
-    DisPlaylyrics();
     windowM();
     lyrics();
     if (musicENDS.isDone()) {
@@ -97,19 +96,24 @@ function draw() {
 }
 
 function windowM() {
+  push();
   fill(255);
-  rectMode(CENTER, CENTER);
-  rect(width/2 - 350,height/2,500,800);
+  rectMode(CORNER);
+  rect(0,0,windowWidth,windowHeight/2 - 390);//TOP side
+  rect(0,0,windowWidth/2 - 590,windowHeight);//LEFT side
+  rect(0,windowHeight/2 + 390,windowWidth,windowHeight);//BOTTOM side
+  rect(windowWidth/2 - 110,0,windowWidth,windowHeight);//RIGHT side
+  pop();
   fill(0);
-  rect(width/2 - 350,height/2,485,785);
-}
-
-function intro() {
-  background(0);
+  noStroke();
+  rectMode(CORNER);
+  rect(0,0,windowWidth,windowHeight/2 - 400);//TOP side
+  rect(0,0,windowWidth/2 - 600,windowHeight);//LEFT side
+  rect(0,windowHeight/2 + 400,windowWidth,windowHeight);//BOTTOM side
+  rect(windowWidth/2 - 100,0,windowWidth,windowHeight);//RIGHT side
 }
 
 function mainMenu() {
-  background(0);
   textAlign(LEFT, CENTER);
   fill(255,0,0);
   textSize(50);
@@ -198,7 +202,6 @@ function mainMenu() {
 }
 //Name and Class
 function nameAndclass() {
-  background(0);
   textAlign(LEFT, CENTER);
   textLeading(20);
   fill(255,0,0);
@@ -207,16 +210,11 @@ function nameAndclass() {
 }
 //Name of song and singer
 function nameSongAndsinger() {
-  background(0);
   textAlign(LEFT, CENTER);
   textLeading(20);
   fill(255,0,0);
   textSize(50);
   text("Beneath the Mask\nLyn Inaizumi", width / 2 + 200, height / 2);
-}
-
-function DisPlaylyrics() {
-  background(0);
 }
 
 function lyrics(){

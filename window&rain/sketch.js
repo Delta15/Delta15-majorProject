@@ -55,8 +55,8 @@ function windowM() {
 }
 
 function rainAni(){
-  y = y + 100;
-  y2 = y2 + 100;
+  y = y + 50;
+  y2 = y2 + 50;
   if (y > windowHeight + 1000) {
     y = -200;
     y2 = -100;
