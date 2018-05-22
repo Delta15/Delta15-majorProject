@@ -10,7 +10,6 @@
 let rainSfx, maskInt;
 let y = 0;
 let y2 = 100;
-let z = 0;
 
 function preload() {
   rainSfx = loadSound("Music&Sounds/rain.wav");
