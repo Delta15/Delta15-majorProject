@@ -61,7 +61,7 @@ function rainAni(){
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
-    x = random(100, 350);
+    x = random(windowWidth/2 - 590, windowWidth/2 - 110);
   }
   push();
   strokeWeight(2);
