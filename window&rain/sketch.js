@@ -32,12 +32,12 @@ function windowResized() {
 
 function draw() {
   background(0);
-  randomRain();
-  stroke(255,0,0);
+  // randomRain();
+  // stroke(255,0,0);
   // line(topPositonX,topPositonY,bottomPositonX,bottomPositonY)
-  line(windowWidth/2,0,windowWidth/2,windowHeight);
-  // rainAni();
-  // windowM();
+  // line(windowWidth/2,0,windowWidth/2,windowHeight);
+  rainAni();
+  windowM();
 }
 
 function windowM() {
@@ -66,17 +66,20 @@ function rainAni(){
     y2 = -100;
   }
   push();
-  strokeWeight(2);
+  strokeWeight(5);
   stroke(255,0,0);
   line(windowWidth/2 - 250,y,windowWidth/2 -250,y2);
+  line(windowWidth/2 - 260,y,windowWidth/2 -260,y2);
+  line(windowWidth/2 - 270,y,windowWidth/2 -270,y2);
+  line(windowWidth/2 - 280,y,windowWidth/2 -280,y2);
   pop();
 }
 
 function randomRain() {
-  for (let i = 0; i < 100; i++){
+  for (let i = 0; i < windowHeight; i++){
     let r = random(50, 100);
     stroke(r * 5);
-    line(windowWidth/2, i, 50 + r, i);
+    line(windowWidth, i + r, 0, i + r);
   }
 }
 
