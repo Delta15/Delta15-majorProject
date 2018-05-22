@@ -10,6 +10,7 @@
 let rainSfx, maskInt;
 let y = 0;
 let y2 = 100;
+let x = 150;
 
 function preload() {
   //A looping sound of rain
@@ -55,27 +56,19 @@ function windowM() {
 }
 
 function rainAni(){
-  y = y + 80;
-  y2 = y2 + 80;
+  y = y + 100;
+  y2 = y2 + 100;
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
+    x = random(100, 350);
   }
   push();
   strokeWeight(2);
   stroke(255,0,0);
-  line(windowWidth/2 - 250,y,windowWidth/2 -250,y2);
+  line(x,y,x,y2);
   pop();
 }
-
-function randomRain() {
-  for (let i = 0; i < windowHeight; i++){
-    let r = random(50, 100);
-    stroke(r * 5);
-    line(windowWidth, i + r, 0, i + r);
-  }
-}
-
 
 class Timer {
   constructor(waitTime) {
