@@ -48,7 +48,6 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
   rainSfx.loop();
   rainSfx.setVolume(0.3);
   BGmusic.setVolume(1.0);
@@ -61,6 +60,7 @@ function windowResized() {
 
 function draw() {
   if (state === 1) {
+    background(0);
     windowM();
     if (timerONE.isDone()) {
       state = 2;
@@ -68,10 +68,12 @@ function draw() {
     }
   }
   else if (state === 2) {
+    background(0);
     windowM();
     mainMenu();
   }
   else if (state === 3) {
+    background(0);
     windowM();
     nameAndclass();
     if (timerTHREE.isDone()) {
@@ -80,6 +82,7 @@ function draw() {
     }
   }
   else if (state === 4) {
+    background(0);
     windowM();
     nameSongAndsinger();
     if (timerFOUR.isDone()) {
@@ -87,6 +90,7 @@ function draw() {
     }
   }
   else if (state === 5) {
+    background(0);
     windowM();
     lyrics();
     if (musicENDS.isDone()) {
