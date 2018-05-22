@@ -6,6 +6,9 @@
 // https://genius.com/Lyn-inaizumi-beneath-the-mask-annotated
 //https://www.youtube.com/watch?v=h012heXDB7o
 
+let y = 0;
+let y2 = 100;
+
 let state = 1;
 //main music and rain sound effect
 let rainSfx, BGmusic, musicENDS;
@@ -61,6 +64,7 @@ function windowResized() {
 function draw() {
   if (state === 1) {
     background(0);
+    rainAni();
     windowM();
     if (timerONE.isDone()) {
       state = 2;
@@ -69,11 +73,13 @@ function draw() {
   }
   else if (state === 2) {
     background(0);
+    rainAni();
     windowM();
     mainMenu();
   }
   else if (state === 3) {
     background(0);
+    rainAni();
     windowM();
     nameAndclass();
     if (timerTHREE.isDone()) {
@@ -83,6 +89,7 @@ function draw() {
   }
   else if (state === 4) {
     background(0);
+    rainAni();
     windowM();
     nameSongAndsinger();
     if (timerFOUR.isDone()) {
@@ -91,12 +98,27 @@ function draw() {
   }
   else if (state === 5) {
     background(0);
+    rainAni();
     windowM();
     lyrics();
     if (musicENDS.isDone()) {
       state = 2;
     }
   }
+}
+
+function rainAni(){
+  y = y + 80;
+  y2 = y2 + 80;
+  if (y > windowHeight) {
+    y = -200;
+    y2 = -100;
+  }
+  push();
+  strokeWeight(2);
+  stroke(255,0,0);
+  line(windowWidth/2 - 250,y,windowWidth/2 -250,y2);
+  pop();
 }
 
 function windowM() {

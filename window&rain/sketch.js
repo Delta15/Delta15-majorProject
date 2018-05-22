@@ -32,10 +32,6 @@ function windowResized() {
 
 function draw() {
   background(0);
-  // randomRain();
-  // stroke(255,0,0);
-  // line(topPositonX,topPositonY,bottomPositonX,bottomPositonY)
-  // line(windowWidth/2,0,windowWidth/2,windowHeight);
   rainAni();
   windowM();
 }
@@ -59,19 +55,16 @@ function windowM() {
 }
 
 function rainAni(){
-  y = y + 60;
-  y2 = y2 + 60;
-  if (y > windowHeight + 1000) {
+  y = y + 80;
+  y2 = y2 + 80;
+  if (y > windowHeight) {
     y = -200;
     y2 = -100;
   }
   push();
-  strokeWeight(5);
+  strokeWeight(2);
   stroke(255,0,0);
   line(windowWidth/2 - 250,y,windowWidth/2 -250,y2);
-  line(windowWidth/2 - 260,y,windowWidth/2 -260,y2);
-  line(windowWidth/2 - 270,y,windowWidth/2 -270,y2);
-  line(windowWidth/2 - 280,y,windowWidth/2 -280,y2);
   pop();
 }
 
