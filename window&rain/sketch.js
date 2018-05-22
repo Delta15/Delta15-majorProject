@@ -6,14 +6,15 @@
 // https://genius.com/Lyn-inaizumi-beneath-the-mask-annotated
 //https://www.youtube.com/watch?v=h012heXDB7o
 
-//rain sound effect
+//rain sound effect and music
 let rainSfx, maskInt;
 let y = 0;
 let y2 = 100;
 
 function preload() {
-  rainSfx = loadSound("Music&Sounds/rain.wav");
   //A looping sound of rain
+  rainSfx = loadSound("Music&Sounds/rain.wav");
+  //music
   maskInt = loadSound("Music&Sounds/Mask-Instrumental.mp3");
 }
 
@@ -21,7 +22,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
   rainSfx.setVolume(0.3);
-  maskInt.play();
+  maskInt.loop();
   maskInt.setVolume(1.0);
 }
 
