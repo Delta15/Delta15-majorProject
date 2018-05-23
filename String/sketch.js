@@ -1,4 +1,4 @@
-let x = 50;
+let x = 0;
 let testString;
 let wait;
 
