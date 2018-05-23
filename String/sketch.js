@@ -22,11 +22,11 @@ function draw() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-
+//random display strings 4 times
 function string(){
-  x = random(50, windowWidth - 50);
+  x = random(50, 1000);
   stroke(255,0,0);
-  strokeWeight(5);
+  strokeWeight(1);
   line(x, 0, x, height);
   noLoop();
 }
