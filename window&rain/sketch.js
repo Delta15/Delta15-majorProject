@@ -22,7 +22,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
-  rainSfx.setVolume(0.3);
+  rainSfx.setVolume(0.4);
   maskInt.loop();
   maskInt.setVolume(1.0);
 }
@@ -56,8 +56,8 @@ function windowM() {
 }
 
 function rainAni(){
-  y = y + 100;
-  y2 = y2 + 100;
+  y = y + random(50, 300);
+  y2 = y2 + random(50, 300);
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
