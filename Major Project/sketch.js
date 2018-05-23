@@ -8,6 +8,7 @@
 
 let y = 0;
 let y2 = 100;
+let x = 150;
 
 let state = 1;
 //main music and rain sound effect
@@ -108,16 +109,17 @@ function draw() {
 }
 
 function rainAni(){
-  y = y + 80;
-  y2 = y2 + 80;
+  y = y + 100;
+  y2 = y2 + 100;
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
+    x = random(windowWidth/2 - 590, windowWidth/2 - 110);
   }
   push();
   strokeWeight(2);
   stroke(255,0,0);
-  line(windowWidth/2 - 250,y,windowWidth/2 -250,y2);
+  line(x,y,x,y2);
   pop();
 }
 
