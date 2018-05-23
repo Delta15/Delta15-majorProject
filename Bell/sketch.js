@@ -8,7 +8,6 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  background(0);
   testBell.loop();
   wait = new Timer(723);
 }
@@ -16,16 +15,15 @@ function setup() {
 function draw() {
   background(0);
   if (wait.isDone()) {
-    background(255);
     bell();
   }
 }
 
 function bell(){
-  grow = grow + 2;
-  if (grow > 500) {
-    grow = 0;
-    // noLoop();
+  grow = grow + 10;
+  if (grow > 100) {
+    // grow = 0;
+    noLoop();
   }
   noStroke();
   fill(255,0,0);
