@@ -1,6 +1,7 @@
 let x = 0;
+let stringTimes4 = [1,2,3,4];
 let testString;
-let wait;
+let sOne,sTwo,sThree,SFour;
 
 function preload(){
   testString = loadSound("Music&Sounds/mask_ Bell and String.mp3");
@@ -9,12 +10,15 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   testString.loop();
-  wait = new Timer(1290);
+  sOne = new Timer(1290);
 }
 
 function draw() {
   background(0);
-  if (wait.isDone()) {
+  if (sOne.isDone()) {
+    string();
+    string();
+    string();
     string();
   }
 }
@@ -28,7 +32,6 @@ function string(){
   stroke(255,0,0);
   strokeWeight(1);
   line(x, 0, x, height);
-  noLoop();
 }
 
 class Timer {

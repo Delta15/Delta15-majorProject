@@ -1,5 +1,7 @@
 let testBell;
 let grow = 0;
+let bellPosY = 0;
+let bellPosX = 0;
 let wait;
 
 function preload(){
@@ -16,18 +18,26 @@ function draw() {
   background(0);
   if (wait.isDone()) {
     bell();
+    bell();
+    bell();
+    bell();
+    bell();
+    bell();
+    bell();
   }
 }
 
 function bell(){
   grow = grow + 10;
+  bellPosY = random(100, windowHeight - 100);
+  bellPosX = random(100, windowWidth - 100);
   if (grow > 100) {
     // grow = 0;
     noLoop();
   }
   noStroke();
   fill(255,0,0);
-  ellipse(windowWidth/2,windowHeight/2,grow,grow);
+  ellipse(bellPosX,bellPosY,grow,grow);
 }
 
 function windowResized() {
