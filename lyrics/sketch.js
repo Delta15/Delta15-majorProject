@@ -36,7 +36,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   rainSfx.loop();
-  rainSfx.setVolume(0.2);
+  rainSfx.setVolume(0.4);
   BGmusic.setVolume(1.0);
   BGmusic.play();
 
