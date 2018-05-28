@@ -11,7 +11,7 @@ let rainSfx, maskInt;
 
 let y = 0;
 let y2 = 100;
-let x = 150;
+let x = 0;
 
 function preload() {
   //A looping sound of rain
