@@ -109,8 +109,8 @@ function draw() {
 }
 
 function rainAni(){
-  y = y + random(50, 300);
-  y2 = y2 + random(50, 300);
+  y = y + random(50, 400);
+  y2 = y2 + random(50, 400);
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
