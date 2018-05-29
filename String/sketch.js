@@ -11,6 +11,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   testString.loop();
   sOne = new Timer(1290);
+  x = random(50, 1000);
 }
 
 function draw() {
@@ -25,7 +26,6 @@ function windowResized() {
 }
 //random display strings 4 times
 function string(){
-  x = random(50, 1000);
   stroke(255,0,0);
   strokeWeight(1);
   line(x, 0, x, height);
