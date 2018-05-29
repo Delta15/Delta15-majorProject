@@ -17,9 +17,6 @@ function draw() {
   background(0);
   if (sOne.isDone()) {
     string();
-    string();
-    string();
-    string();
   }
 }
 
