@@ -1,8 +1,9 @@
 let testBell;
 let grow = 0;
-let bellPosX = 500;
-let bellPosY = 500;
+let bellPosX = 0;
+let bellPosY = 0;
 let wait;
+let bONE,bTWO,bTHREE,bFOUR,bFIVE,bSIX,bSEVEN,bEIGHT;
 
 function preload(){
   testBell = loadSound("Music&Sounds/mask_ Bell and String.mp3");
@@ -12,6 +13,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   testBell.loop();
   wait = new Timer(723);
+  bellPosX = random(50,windowWidth - 50);
+  bellPosY = random(50,windowHeight - 50);
 }
 
 function draw() {
@@ -22,14 +25,15 @@ function draw() {
 }
 
 function bell(){
-  grow = grow + 4;
-  if (grow > 150) {
+  grow = grow + 3;
+  if (grow > 200) {
     grow = 0;
     bellPosX = random(50,windowWidth - 50);
     bellPosY = random(50,windowHeight - 50);
   }
-  noStroke();
-  fill(255,0,0);
+  strokeWeight(5);
+  stroke(255,0,0);
+  noFill();
   ellipse(bellPosX,bellPosY,grow,grow);
 }
 
