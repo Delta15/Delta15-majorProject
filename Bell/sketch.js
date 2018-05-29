@@ -1,6 +1,7 @@
 let testBell;
 let grow = 0;
-let bellPosYandX = 0;
+let bellPosX = 500;
+let bellPosY = 500;
 let wait;
 
 function preload(){
@@ -9,7 +10,7 @@ function preload(){
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  // testBell.loop();
+  testBell.loop();
   wait = new Timer(723);
 }
 
@@ -21,15 +22,15 @@ function draw() {
 }
 
 function bell(){
-  grow = grow + 1;
-  bellPosYandX = random(50, 500);
-  if (grow === 100) {
-    bellPosYandX = random(50, 500);
+  grow = grow + 4;
+  if (grow > 150) {
     grow = 0;
+    bellPosX = random(50,windowWidth - 50);
+    bellPosY = random(50,windowHeight - 50);
   }
   noStroke();
   fill(255,0,0);
-  ellipse(bellPosYandX,bellPosYandX,grow,grow);
+  ellipse(bellPosX,bellPosY,grow,grow);
 }
 
 function windowResized() {
