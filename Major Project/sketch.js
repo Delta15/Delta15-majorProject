@@ -10,6 +10,9 @@ let y = 0;
 let y2 = 100;
 let x = 150;
 
+//zoomIn settings
+let zGrow = 0;
+
 let state = 1;
 //main music and rain sound effect
 let rainSfx, BGmusic, musicENDS;
@@ -106,6 +109,13 @@ function draw() {
       state = 2;
     }
   }
+}
+
+function zoomIn(){
+  zGrow = zGrow - 3;
+  fill(255,0,0);
+  noStroke();
+  ellipse(width / 2 + 200, height / 2, windowWidth + 500, windowHeight + 500);
 }
 
 function rainAni(){
