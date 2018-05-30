@@ -11,7 +11,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   testString.loop();
   sOne = new Timer(1290);
-  x = random(50, 1000);
+  x = random(50, windowWidth - 50);
 }
 
 function draw() {
