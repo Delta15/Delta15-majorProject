@@ -2,6 +2,7 @@ let testBell;
 let grow = 0;
 let bellPosX = 0;
 let bellPosY = 0;
+let nBell = [];
 let wait;
 let bONE,bTWO,bTHREE,bFOUR,bFIVE,bSIX,bSEVEN,bEIGHT;
 
@@ -13,8 +14,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   testBell.loop();
   wait = new Timer(723);
-  bellPosX = random(50,windowWidth - 50);
-  bellPosY = random(50,windowHeight - 50);
+  bellPosX = random(200,windowWidth - 200);
+  bellPosY = random(200,windowHeight - 200);
 }
 
 function draw() {
@@ -28,8 +29,8 @@ function bell(){
   grow = grow + 3;
   if (grow > 200) {
     grow = 0;
-    bellPosX = random(50,windowWidth - 50);
-    bellPosY = random(50,windowHeight - 50);
+    bellPosX = random(200,windowWidth - 200);
+    bellPosY = random(200,windowHeight - 200);
   }
   strokeWeight(5);
   stroke(255,0,0);
