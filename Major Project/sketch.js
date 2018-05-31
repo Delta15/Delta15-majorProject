@@ -14,7 +14,7 @@ let x = 150;
 let zGrow = 0;
 
 let state = 1;
-//main music and rain sound effect
+//main music & rain sound effect
 let rainSfx, BGmusic, musicENDS;
 
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
