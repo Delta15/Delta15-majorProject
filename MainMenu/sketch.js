@@ -1,19 +1,21 @@
 // global variables
 let state;
-let x, y, radius;
-let button,rButton;
+let button;
+let backColor = 0;
+let maskColor = 0;
+let glideColor = 255;
 
 function preload(){
   button = loadSound("sound/button.mp3");
-  rButton = loadSound("sound/Rbutton.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
   state = 1;
-  x = width / 2;
-  y = height / 2;
-  radius = 50;
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
 
 function draw() {
@@ -39,10 +41,12 @@ function maskMenu(){
   let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
+  maskColor = 0;
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
+    maskColor = 255;
     if (mouseIsPressed) {
       button.play();
       state = 2;
@@ -50,6 +54,10 @@ function maskMenu(){
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
+  fill(maskColor);
+  textSize(100);
+  textAlign(CENTER,CENTER);
+  text("Mask",windowWidth/2 - 700,windowHeight/2);
 }
 
 function glideMenu(){
@@ -59,10 +67,12 @@ function glideMenu(){
   let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
+  glideColor = 0;
 
   fill(255);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0,191,255);
+    glideColor = 255,255,224;
     if (mouseIsPressed) {
       button.play();
       state = 3;
@@ -70,6 +80,10 @@ function glideMenu(){
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
+  fill(glideColor);
+  textSize(100);
+  textAlign(CENTER,CENTER);
+  text("Glide",windowWidth/2 + 700,windowHeight/2);
 }
 
 function back(){
@@ -79,15 +93,20 @@ function back(){
   let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
+  backColor = 0;
 
   fill(255);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
+    backColor = 255;
     if (mouseIsPressed) {
-      rButton.play();
       state = 1;
     }
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
+  fill(backColor);
+  textSize(25);
+  textAlign(CENTER,CENTER);
+  text("Back",50,50);
 }
