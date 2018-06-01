@@ -12,24 +12,76 @@ function setup() {
 
 function draw() {
   background(255);
-  maskMenu();
+  if (state === 1) {
+    maskMenu();
+    glideMenu();
+  }
+  if (state === 2) {
+    background(0);
+    back();
+  }
+  if (state === 3) {
+    background(0,191,255);
+    back();
+  }
 }
 
 function maskMenu(){
   let buttonWidth = windowWidth/2;
   let buttonHeight = windowHeight;
-  let leftSide = width / 2 - buttonWidth / 2;
-  let topSide = height / 2 - buttonHeight / 2;
+  let leftSide = 0;
+  let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
-    fill(125);
+    fill(0);
     if (mouseIsPressed) {
       state = 2;
     }
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
+  // rect(x,y,w,h)
+}
+
+function glideMenu(){
+  let buttonWidth = windowWidth/2;
+  let buttonHeight = windowHeight;
+  let leftSide = windowWidth/2;
+  let topSide = 0;
+  let rightSide = leftSide + buttonWidth;
+  let bottomSide = topSide + buttonHeight;
+
+  fill(255);
+  if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    fill(0,191,255);
+    if (mouseIsPressed) {
+      state = 3;
+    }
+  }
+  noStroke();
+  rect(leftSide, topSide, buttonWidth, buttonHeight);
+  // rect(x,y,w,h)
+}
+
+function back(){
+  let buttonWidth = 100;
+  let buttonHeight = 100;
+  let leftSide = 0;
+  let topSide = 0;
+  let rightSide = leftSide + buttonWidth;
+  let bottomSide = topSide + buttonHeight;
+
+  fill(255);
+  if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    fill(0);
+    if (mouseIsPressed) {
+      state = 1;
+    }
+  }
+  noStroke();
+  rect(leftSide, topSide, buttonWidth, buttonHeight);
+  // rect(x,y,w,h)
 }
