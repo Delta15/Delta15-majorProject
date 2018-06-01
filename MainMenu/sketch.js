@@ -1,6 +1,12 @@
 // global variables
 let state;
 let x, y, radius;
+let button,rButton;
+
+function preload(){
+  button = loadSound("sound/button.mp3");
+  rButton = loadSound("sound/Rbutton.mp3");
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -38,12 +44,12 @@ function maskMenu(){
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
     if (mouseIsPressed) {
+      button.play();
       state = 2;
     }
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
-  // rect(x,y,w,h)
 }
 
 function glideMenu(){
@@ -58,12 +64,12 @@ function glideMenu(){
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0,191,255);
     if (mouseIsPressed) {
+      button.play();
       state = 3;
     }
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
-  // rect(x,y,w,h)
 }
 
 function back(){
@@ -78,10 +84,10 @@ function back(){
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
     if (mouseIsPressed) {
+      rButton.play();
       state = 1;
     }
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
-  // rect(x,y,w,h)
 }
