@@ -6,16 +6,30 @@
 // https://genius.com/Lyn-inaizumi-beneath-the-mask-annotated
 //https://www.youtube.com/watch?v=h012heXDB7o
 
+
+// global variables
+let state;
+
+//mainMenu
+let button;
+let backColor = 0;
+let maskColor = 0;
+let glideColor = 255;
+
+//rainAni() settings
 let y = 0;
 let y2 = 100;
 let x = 150;
 
-//zoomIn settings
+//zoomIn() settings
 let zGrow = 0;
 
-let state = 1;
-//main music & rain sound effect
-let rainSfx, BGmusic, musicENDS;
+//main music & beach sound effect for glide()
+let beachSfx, glideMainM, glideENDS;
+let Gone;
+
+//main music & rain sound effect for mask()
+let rainSfx, maskMainM, maskENDS;
 
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
@@ -47,18 +61,26 @@ let C3one, C3two, C3three, C3four, C3five, C3six, C3seven, C3eight;
 let credits;
 
 function preload() {
-  rainSfx = loadSound("Music&Sounds/rain.wav");
+  button = loadSound("Music&Sounds/button.mp3");
   //A looping sound of rain
-  BGmusic = loadSound("Music&Sounds/mask.mp3");
-  //music length 4 minute 39 second or 279000 millisecond
+  rainSfx = loadSound("Music&Sounds/rain.wav");
+  //music length 4 minute 39 seconds or 279000 millisecond
+  maskMainM = loadSound("Music&Sounds/mask.mp3");
+
+  //a looping sound of the beach
+  beachSfx = loadSound("Music&Sounds/beach.mp3");
+  //music length 3 minute 16 seconds + extra space 5 seconds or 201000 millisecond
+  glideMainM = loadSound("Music&Sounds/Glide.mp3");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  rainSfx.loop();
+  state = 1;
   rainSfx.setVolume(0.4);
-  BGmusic.setVolume(1.0);
-  timerONE = new Timer(5000);
+  beachSfx.setVolume(0.5);
+  button.setVolume(0.5);
+  maskMainM.setVolume(1.0);
+  glideMainM.setVolume(1.0);
 }
 
 function windowResized() {
@@ -67,47 +89,172 @@ function windowResized() {
 
 function draw() {
   if (state === 1) {
+    maskMenu();
+    glideMenu();
+  }
+  if (state === 2) {
     background(0);
     rainAni();
     windowM();
+    back();
     if (timerONE.isDone()) {
-      state = 2;
+      state = 3;
       timerTWO = new Timer(3000);
     }
-  }
-  else if (state === 2) {
-    background(0);
-    rainAni();
-    windowM();
-    mainMenu();
   }
   else if (state === 3) {
     background(0);
     rainAni();
     windowM();
-    nameAndclass();
-    if (timerTHREE.isDone()) {
-      state = 4;
-      timerFOUR = new Timer(12500);
-    }
+    mask();
+    back();
   }
   else if (state === 4) {
     background(0);
     rainAni();
     windowM();
-    nameSongAndsinger();
-    if (timerFOUR.isDone()) {
+    nameAndclass();
+    back();
+    if (timerTHREE.isDone()) {
       state = 5;
+      timerFOUR = new Timer(12500);
     }
   }
   else if (state === 5) {
     background(0);
     rainAni();
     windowM();
+    nameSongAndsinger();
+    back();
+    if (timerFOUR.isDone()) {
+      state = 6;
+    }
+  }
+  else if (state === 6) {
+    background(0);
+    rainAni();
+    windowM();
     lyrics();
-    if (musicENDS.isDone()) {
+    back();
+    if (maskENDS.isDone()) {
       state = 2;
     }
+  }
+  else if (state === 7) {
+    background(0,191,255);
+    back();
+    if (Gone.isDone()) {
+      state = 8;
+    }
+  }
+  else if (state === 8) {
+    background(0,191,255);
+    glide();
+    back();
+  }
+  else if (state === 9) {
+    background(0,191,255);
+    back();
+    if (glideENDS.isDone()) {
+      state = 7;
+    }
+  }
+}
+
+function maskMenu(){
+  let buttonWidth = windowWidth/2;
+  let buttonHeight = windowHeight;
+  let leftSide = 0;
+  let topSide = 0;
+  let rightSide = leftSide + buttonWidth;
+  let bottomSide = topSide + buttonHeight;
+  maskColor = 0;
+
+  fill(255,0,0);
+  if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    fill(0);
+    maskColor = 255;
+    if (mouseIsPressed) {
+      timerONE = new Timer(5000);
+      button.play();
+      state = 2;
+      rainSfx.loop();
+    }
+  }
+  noStroke();
+  rect(leftSide, topSide, buttonWidth, buttonHeight);
+  fill(maskColor);
+  textSize(100);
+  textAlign(CENTER,CENTER);
+  text("Mask",windowWidth/2 - 700,windowHeight/2);
+}
+
+function glideMenu(){
+  let buttonWidth = windowWidth/2;
+  let buttonHeight = windowHeight;
+  let leftSide = windowWidth/2;
+  let topSide = 0;
+  let rightSide = leftSide + buttonWidth;
+  let bottomSide = topSide + buttonHeight;
+  glideColor = 0;
+
+  fill(255,255,0);
+  if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    fill(0,191,255);
+    glideColor = 255,255,224;
+    if (mouseIsPressed) {
+      Gone = new Timer(5000);
+      button.play();
+      beachSfx.loop();
+      state = 7;
+    }
+  }
+  noStroke();
+  rect(leftSide, topSide, buttonWidth, buttonHeight);
+  fill(glideColor);
+  textSize(100);
+  textAlign(CENTER,CENTER);
+  text("Glide",windowWidth/2 + 700,windowHeight/2);
+}
+
+function back(){
+  let buttonWidth = 100;
+  let buttonHeight = 100;
+  let leftSide = 0;
+  let topSide = 0;
+  let rightSide = leftSide + buttonWidth;
+  let bottomSide = topSide + buttonHeight;
+  backColor = 0;
+
+  fill(255);
+  if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    fill(0);
+    backColor = 255;
+    if (mouseIsPressed) {
+      state = 1;
+      maskMainM.stop();
+      rainSfx.stop();
+      beachSfx.stop();
+      glideMainM.stop();
+    }
+  }
+  noStroke();
+  rect(leftSide, topSide, buttonWidth, buttonHeight);
+  fill(backColor);
+  textSize(25);
+  textAlign(CENTER,CENTER);
+  text("Back",50,50);
+}
+
+function glide(){
+  textAlign(CENTER, CENTER);
+  fill(255,255,0);
+  textSize(100);
+  text("CLICK TO PLAY", width / 2, height / 2);
+  if (mouseIsPressed) {
+    state = 9;
+    glideMainM.play();
+    glideENDS = new Timer(201000);
   }
 }
 
@@ -151,15 +298,15 @@ function windowM() {
   rect(windowWidth/2 - 100,0,windowWidth,windowHeight);//RIGHT side
 }
 
-function mainMenu() {
+function mask() {
   textAlign(LEFT, CENTER);
   fill(255,0,0);
   textSize(50);
   text("CLICK TO PLAY", width / 2 + 200, height / 2);
   if (mouseIsPressed) {
-    state = 3;
+    state = 4;
     timerTHREE = new Timer(12500);
-    musicENDS = new Timer (279000);
+    maskENDS = new Timer (279000);
     //Verse 1//
     Vone = new Timer(25500);
     Vtwo = new Timer(29000);
@@ -235,7 +382,7 @@ function mainMenu() {
     //hidetext
     hidetext4 = new Timer(255000);
 
-    BGmusic.play();
+    maskMainM.play();
   }
 }
 //Name and Class
