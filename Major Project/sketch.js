@@ -89,8 +89,12 @@ function windowResized() {
 
 function draw() {
   if (state === 1) {
+    background(255);
     maskMenu();
     glideMenu();
+    fill(0);
+    textAlign(CENTER,CENTER);
+    text("M\nE\nN\nU",50,250);
   }
   if (state === 2) {
     background(0);
@@ -164,7 +168,7 @@ function draw() {
 function maskMenu(){
   let buttonWidth = windowWidth/2;
   let buttonHeight = windowHeight;
-  let leftSide = 0;
+  let leftSide = 100;
   let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
@@ -232,6 +236,7 @@ function back(){
     backColor = 255;
     if (mouseIsPressed) {
       state = 1;
+      button.play();
       maskMainM.stop();
       rainSfx.stop();
       beachSfx.stop();
@@ -582,7 +587,7 @@ function lyrics(){
 
   //end credits
   if (credits.isDone()) {
-    textLeading(30);
+    textLeading(20);
     lyricsText = "Beneath the Mask\nLyn Inaizumi\nMcRaven Tuazon\nCS30";
   }
 
