@@ -146,6 +146,7 @@ function draw() {
   }
   else if (state === 7) {
     background(0,191,255);
+    beach();
     back();
     if (Gone.isDone()) {
       state = 8;
@@ -154,10 +155,12 @@ function draw() {
   else if (state === 8) {
     background(0,191,255);
     glide();
+    beach();
     back();
   }
   else if (state === 9) {
     background(0,191,255);
+    beach();
     back();
     if (glideENDS.isDone()) {
       state = 7;
@@ -249,6 +252,14 @@ function back(){
   textSize(25);
   textAlign(CENTER,CENTER);
   text("Back",50,50);
+}
+
+function beach(){
+  push();
+  rectMode(LEFT);
+  fill(244,220,181);
+  rect(0,windowHeight/2 + 200,windowWidth,windowHeight);
+  pop();
 }
 
 function glide(){
