@@ -4,9 +4,12 @@ let button;
 let backColor = 0;
 let maskColor = 0;
 let glideColor = 255;
+let preV_glide,preV_mask;
 
 function preload(){
   button = loadSound("sound/button.mp3");
+  preV_glide = loadSound("sound/Preview_Glide.mp3");
+  preV_mask = loadSound("sound/Preview_mask.mp3");
 }
 
 function setup() {
@@ -45,9 +48,12 @@ function maskMenu(){
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    preV_glide.stop();
+    preV_mask.play();
     fill(0);
     maskColor = 255;
     if (mouseIsPressed) {
+      preV_mask.stop();
       button.play();
       state = 2;
     }
@@ -69,11 +75,14 @@ function glideMenu(){
   let bottomSide = topSide + buttonHeight;
   glideColor = 0;
 
-  fill(255);
+  fill(255,255,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
+    preV_mask.stop();
+    preV_glide.play();
     fill(0,191,255);
     glideColor = 255,255,224;
     if (mouseIsPressed) {
+      preV_glide.stop();
       button.play();
       state = 3;
     }
