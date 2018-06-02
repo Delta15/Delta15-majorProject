@@ -26,6 +26,9 @@ function draw() {
   if (state === 1) {
     maskMenu();
     glideMenu();
+    fill(0);
+    textAlign(CENTER,CENTER);
+    text("M\nE\nN\nU",50,250);
   }
   if (state === 2) {
     background(0);
@@ -40,7 +43,7 @@ function draw() {
 function maskMenu(){
   let buttonWidth = windowWidth/2;
   let buttonHeight = windowHeight;
-  let leftSide = 0;
+  let leftSide = 100;
   let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
@@ -48,12 +51,9 @@ function maskMenu(){
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
-    preV_glide.stop();
-    preV_mask.play();
     fill(0);
     maskColor = 255;
     if (mouseIsPressed) {
-      preV_mask.stop();
       button.play();
       state = 2;
     }
@@ -77,12 +77,9 @@ function glideMenu(){
 
   fill(255,255,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
-    preV_mask.stop();
-    preV_glide.play();
     fill(0,191,255);
     glideColor = 255,255,224;
     if (mouseIsPressed) {
-      preV_glide.stop();
       button.play();
       state = 3;
     }
@@ -109,6 +106,7 @@ function back(){
     fill(0);
     backColor = 255;
     if (mouseIsPressed) {
+      button.play();
       state = 1;
     }
   }
