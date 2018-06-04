@@ -21,12 +21,24 @@ let y = 0;
 let y2 = 100;
 let x = 150;
 
-//zoomIn() settings
-let zGrow = 0;
+//ball() settings
+let grow = 0;
+let bellPosX = 0;
+let bellPosY = 0;
+
+//mainMenu animation
+let Rani = false;
+let Cani = false;
 
 //main music & beach sound effect for glide()
 let beachSfx, glideMainM, glideENDS;
 let Gone;
+
+//gNameAndclass()
+let tGrow = 0;
+
+//Glide time
+let gT;
 
 //main music & rain sound effect for mask()
 let rainSfx, maskMainM, maskENDS;
@@ -81,6 +93,8 @@ function setup() {
   button.setVolume(0.5);
   maskMainM.setVolume(1.0);
   glideMainM.setVolume(1.0);
+  bellPosX = random(windowWidth/2 + 200,windowWidth);
+  bellPosY = random(200,windowHeight - 200);
 }
 
 function windowResized() {
@@ -91,7 +105,13 @@ function draw() {
   if (state === 1) {
     background(255);
     maskMenu();
+    if (Rani === true) {
+      MenuRainAni();
+    }
     glideMenu();
+    if (Cani === true) {
+      bell();
+    }
     fill(0);
     textAlign(CENTER,CENTER);
     text("M\nE\nN\nU",50,250);
@@ -161,7 +181,19 @@ function draw() {
   else if (state === 9) {
     background(0,191,255);
     beach();
+    gNameAndclass();
     back();
+    if (gT.isDone()) {
+      state = 10;
+    }
+  }
+  else if (state === 10) {
+    background(0,191,255);
+    beach();
+    back();
+  }
+  else if (state === 11) {
+    //put stuff here
     if (glideENDS.isDone()) {
       state = 7;
     }
@@ -176,10 +208,12 @@ function maskMenu(){
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
   maskColor = 0;
+  Rani = false;
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
+    Rani = true;
     maskColor = 255;
     if (mouseIsPressed) {
       timerONE = new Timer(5000);
@@ -204,11 +238,13 @@ function glideMenu(){
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
   glideColor = 0;
+  Cani = false;
 
   fill(255,255,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0,191,255);
     glideColor = 255,255,224;
+    Cani = true;
     if (mouseIsPressed) {
       Gone = new Timer(5000);
       button.play();
@@ -239,6 +275,7 @@ function back(){
     backColor = 255;
     if (mouseIsPressed) {
       state = 1;
+      tGrow = 0;
       button.play();
       maskMainM.stop();
       rainSfx.stop();
@@ -262,6 +299,21 @@ function beach(){
   pop();
 }
 
+function bell(){
+  grow = grow + 4;
+  if (grow > 200) {
+    grow = 0;
+    bellPosX = random(windowWidth/2 + 200,windowWidth);
+    bellPosY = random(200,windowHeight - 200);
+  }
+  push();
+  strokeWeight(5);
+  stroke(255,255,0);
+  noFill();
+  ellipse(bellPosX,bellPosY,grow,grow);
+  pop();
+}
+
 function glide(){
   textAlign(CENTER, CENTER);
   fill(255,255,0);
@@ -270,15 +322,9 @@ function glide(){
   if (mouseIsPressed) {
     state = 9;
     glideMainM.play();
+    gT = new Timer(6300);
     glideENDS = new Timer(201000);
   }
-}
-
-function zoomIn(){
-  zGrow = zGrow - 3;
-  fill(255,0,0);
-  noStroke();
-  ellipse(width / 2 + 200, height / 2, windowWidth + 500, windowHeight + 500);
 }
 
 function rainAni(){
@@ -291,6 +337,21 @@ function rainAni(){
   }
   push();
   strokeWeight(2);
+  stroke(255,0,0);
+  line(x,y,x,y2);
+  pop();
+}
+
+function MenuRainAni(){
+  y = y + random(50, 400);
+  y2 = y2 + random(50, 400);
+  if (y > windowHeight) {
+    y = -200;
+    y2 = -100;
+    x = random(100, windowWidth/2);
+  }
+  push();
+  strokeWeight(5);
   stroke(255,0,0);
   line(x,y,x,y2);
   pop();
@@ -408,6 +469,17 @@ function nameAndclass() {
   fill(255,0,0);
   textSize(50);
   text("McRaven Tuazon\nCS30", width / 2 + 200, height / 2);
+}
+
+function gNameAndclass(){
+  tGrow = tGrow + 0.5;
+  push();
+  textAlign(CENTER, CENTER);
+  textLeading(20);
+  fill(255,255,0);
+  textSize(tGrow);
+  text("McRaven Tuazon\nCS30", width / 2, height / 2);
+  pop();
 }
 //Name of song and singer
 function nameSongAndsinger() {
