@@ -15,6 +15,8 @@ let button;
 let backColor = 0;
 let maskColor = 0;
 let glideColor = 255;
+let showTitleM = false;
+let showTitleG = false;
 
 //rainAni() settings
 let y = 0;
@@ -105,12 +107,26 @@ function draw() {
   if (state === 1) {
     background(255);
     maskMenu();
+    glideMenu();
     if (Rani === true) {
       MenuRainAni();
     }
-    glideMenu();
     if (Cani === true) {
       bell();
+    }
+    if (showTitleG === true) {
+      push();
+      fill(255,255,0);
+      textAlign(CENTER,CENTER);
+      text("Stephen Walking",windowWidth/2 + 600,windowHeight/2 - 100);
+      pop();
+    }
+    if (showTitleM === true) {
+      push();
+      fill(255,0,0);
+      textAlign(RIGHT,CENTER);
+      text("Lyn Inaizumi",windowWidth/2 - 600,windowHeight/2 - 100);
+      pop();
     }
     fill(0);
     textAlign(CENTER,CENTER);
@@ -209,11 +225,13 @@ function maskMenu(){
   let bottomSide = topSide + buttonHeight;
   maskColor = 0;
   Rani = false;
+  showTitleM = false;
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
     Rani = true;
+    showTitleM = true;
     maskColor = 255;
     if (mouseIsPressed) {
       timerONE = new Timer(5000);
@@ -239,11 +257,13 @@ function glideMenu(){
   let bottomSide = topSide + buttonHeight;
   glideColor = 0;
   Cani = false;
+  showTitleG = false;
 
   fill(255,255,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0,191,255);
     glideColor = 255,255,224;
+    showTitleG = true;
     Cani = true;
     if (mouseIsPressed) {
       Gone = new Timer(5000);
