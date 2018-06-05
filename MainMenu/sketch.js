@@ -4,6 +4,8 @@ let button;
 let backColor = 0;
 let maskColor = 0;
 let glideColor = 255;
+let showTitleM = false;
+let showTitleG = false;
 let preV_glide,preV_mask;
 
 function preload(){
@@ -26,6 +28,20 @@ function draw() {
   if (state === 1) {
     maskMenu();
     glideMenu();
+    if (showTitleG === true) {
+      push();
+      fill(255,255,0);
+      textAlign(CENTER,CENTER);
+      text("Stephen Walking",windowWidth/2 + 600,windowHeight/2 - 100);
+      pop();
+    }
+    if (showTitleM === true) {
+      push();
+      fill(255,0,0);
+      textAlign(RIGHT,CENTER);
+      text("Lyn Inaizumi",windowWidth/2 - 600,windowHeight/2 - 100);
+      pop();
+    }
     fill(0);
     textAlign(CENTER,CENTER);
     text("M\nE\nN\nU",50,250);
@@ -48,10 +64,12 @@ function maskMenu(){
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
   maskColor = 0;
+  showTitleM = false;
 
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
+    showTitleM = true;
     maskColor = 255;
     if (mouseIsPressed) {
       button.play();
@@ -63,7 +81,7 @@ function maskMenu(){
   fill(maskColor);
   textSize(100);
   textAlign(CENTER,CENTER);
-  text("Mask",windowWidth/2 - 700,windowHeight/2);
+  text("Beneath the Mask",windowWidth/2 - 600,windowHeight/2);
 }
 
 function glideMenu(){
@@ -74,10 +92,12 @@ function glideMenu(){
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
   glideColor = 0;
+  showTitleG = false;
 
   fill(255,255,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0,191,255);
+    showTitleG = true;
     glideColor = 255,255,224;
     if (mouseIsPressed) {
       button.play();
