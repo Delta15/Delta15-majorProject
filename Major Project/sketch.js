@@ -26,8 +26,8 @@ let x = 150;
 
 //ball() settings
 let grow = 0;
-let bellPosX = 0;
-let bellPosY = 0;
+let cPosX = 0;
+let cPosY = 0;
 
 //mainMenu animation
 let Rani = false;
@@ -41,7 +41,7 @@ let Gone;
 let tGrow = 0;
 
 //Glide time
-let gT;
+let gT,gT2;
 
 //main music & rain sound effect for mask()
 let rainSfx, maskMainM, maskENDS;
@@ -96,8 +96,8 @@ function setup() {
   button.setVolume(0.5);
   maskMainM.setVolume(1.0);
   glideMainM.setVolume(1.0);
-  bellPosX = random(windowWidth / 2 + 200, windowWidth);
-  bellPosY = random(200, windowHeight - 200);
+  cPosX = random(windowWidth / 2 + 200, windowWidth);
+  cPosY = random(200, windowHeight - 200);
 }
 
 function windowResized() {
@@ -207,14 +207,16 @@ function draw() {
   else if (state === 10) {
     background(0, 191, 255);
     beach();
+    gTitleAndProducer();
     back();
-    if (glideENDS.isDone()) {
-      state = 7;
-      tGrow = 0;
+    if (gT2.isDone()) {
+      state = 11;
     }
   }
   else if (state === 11) {
-    //put stuff here
+    background(0, 191, 255);
+    beach();
+    back();
     if (glideENDS.isDone()) {
       state = 7;
       tGrow = 0;
@@ -329,14 +331,14 @@ function bell() {
   grow = grow + 4;
   if (grow > 200) {
     grow = 0;
-    bellPosX = random(windowWidth / 2 + 200, windowWidth);
-    bellPosY = random(200, windowHeight - 200);
+    cPosX = random(windowWidth / 2 + 200, windowWidth);
+    cPosY = random(200, windowHeight - 200);
   }
   push();
   strokeWeight(5);
   stroke(255, 255, 0);
   noFill();
-  ellipse(bellPosX, bellPosY, grow, grow);
+  ellipse(cPosX, cPosY, grow, grow);
   pop();
 }
 
@@ -349,6 +351,7 @@ function glide() {
     state = 9;
     glideMainM.play();
     gT = new Timer(6300);
+    gT2 = new Timer(20630);
     glideENDS = new Timer(201000);
   }
 }
@@ -497,6 +500,7 @@ function nameAndclass() {
   text("McRaven Tuazon\nCS30", width / 2 + 200, height / 2);
 }
 
+//name of the programmer and class
 function gNameAndclass() {
   tGrow = tGrow + 0.5;
   push();
@@ -507,7 +511,25 @@ function gNameAndclass() {
   text("McRaven Tuazon\nCS30", width / 2, height / 2);
   pop();
 }
-//Name of song and singer
+
+//name of song,producer and album name
+function gTitleAndProducer(){
+  push();
+  textAlign(CENTER, CENTER);
+  fill(255);
+  textSize(100);
+  text("Stephen Walking", width / 2 - 300, height / 2 - 200);
+  pop();
+  push();
+  textAlign(CENTER, CENTER);
+  fill(255, 255, 0);
+  textSize(100);
+  text("Glide", width / 2 + 300, height / 2);
+  pop();
+
+}
+
+//Name of song and singer for mask()
 function nameSongAndsinger() {
   textAlign(LEFT, CENTER);
   textLeading(20);
