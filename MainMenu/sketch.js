@@ -17,6 +17,7 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   state = 1;
+  button.setVolume(0.5);
 }
 
 function windowResized() {
