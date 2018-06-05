@@ -208,11 +208,16 @@ function draw() {
     background(0, 191, 255);
     beach();
     back();
+    if (glideENDS.isDone()) {
+      state = 7;
+      tGrow = 0;
+    }
   }
   else if (state === 11) {
     //put stuff here
     if (glideENDS.isDone()) {
       state = 7;
+      tGrow = 0;
     }
   }
 }
@@ -315,7 +320,7 @@ function back() {
 function beach() {
   push();
   rectMode(LEFT);
-  fill(244, 220, 181);
+  fill(237, 201, 175);
   rect(0, windowHeight / 2 + 200, windowWidth, windowHeight);
   pop();
 }
