@@ -5,12 +5,13 @@
 //Reference
 // https://genius.com/Lyn-inaizumi-beneath-the-mask-annotated
 //https://www.youtube.com/watch?v=h012heXDB7o
+//https://www.youtube.com/watch?v=VL3mPTaFFak
 
 
 // global variables
 let state;
 
-//mainMenu
+//mainMenu() settings
 let button;
 let backColor = 0;
 let maskColor = 0;
