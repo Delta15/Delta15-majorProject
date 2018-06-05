@@ -245,7 +245,7 @@ function maskMenu(){
   fill(maskColor);
   textSize(100);
   textAlign(CENTER,CENTER);
-  text("Mask",windowWidth/2 - 700,windowHeight/2);
+  text("Beneath the Mask",windowWidth/2 - 600,windowHeight/2);
 }
 
 function glideMenu(){
