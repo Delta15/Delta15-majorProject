@@ -66,7 +66,7 @@ let V2one, V2two, V2three, V2four, V2five, V2six, V2seven, V2eight;
 let C2one, C2two, C2three, C2four, C2five, C2six, C2seven, C2eight;
 
 //Bridge
-let bOne,bTwo,bThree,bFour,bFive,bSix,bSeven,bEight;
+let bOne, bTwo, bThree, bFour, bFive, bSix, bSeven, bEight;
 
 //Chorus3
 let C3one, C3two, C3three, C3four, C3five, C3six, C3seven, C3eight;
@@ -78,12 +78,12 @@ function preload() {
   button = loadSound("Music&Sounds/button.mp3");
   //A looping sound of rain
   rainSfx = loadSound("Music&Sounds/rain.wav");
-  //music length 4 minute 39 seconds or 279000 millisecond
+  //music 4 minute 39 seconds or 279000 millisecond
   maskMainM = loadSound("Music&Sounds/mask.mp3");
 
   //a looping sound of the beach
   beachSfx = loadSound("Music&Sounds/beach.mp3");
-  //music length 3 minute 16 seconds + extra space 5 seconds or 201000 millisecond
+  //music 3 minute 16 seconds + extra space 5 seconds or 201000 millisecond
   glideMainM = loadSound("Music&Sounds/Glide.mp3");
 }
 
@@ -95,8 +95,8 @@ function setup() {
   button.setVolume(0.5);
   maskMainM.setVolume(1.0);
   glideMainM.setVolume(1.0);
-  bellPosX = random(windowWidth/2 + 200,windowWidth);
-  bellPosY = random(200,windowHeight - 200);
+  bellPosX = random(windowWidth / 2 + 200, windowWidth);
+  bellPosY = random(200, windowHeight - 200);
 }
 
 function windowResized() {
@@ -116,21 +116,21 @@ function draw() {
     }
     if (showTitleG === true) {
       push();
-      fill(255,255,0);
-      textAlign(CENTER,CENTER);
-      text("Stephen Walking",windowWidth/2 + 600,windowHeight/2 - 100);
+      fill(255, 255, 0);
+      textAlign(CENTER, CENTER);
+      text("Stephen Walking", windowWidth / 2 + 600, windowHeight / 2 - 100);
       pop();
     }
     if (showTitleM === true) {
       push();
-      fill(255,0,0);
-      textAlign(RIGHT,CENTER);
-      text("Lyn Inaizumi",windowWidth/2 - 600,windowHeight/2 - 100);
+      fill(255, 0, 0);
+      textAlign(RIGHT, CENTER);
+      text("Lyn Inaizumi", windowWidth / 2 - 600, windowHeight / 2 - 100);
       pop();
     }
     fill(0);
-    textAlign(CENTER,CENTER);
-    text("M\nE\nN\nU",50,250);
+    textAlign(CENTER, CENTER);
+    text("M\nE\nN\nU", 50, 250);
   }
   if (state === 2) {
     background(0);
@@ -181,7 +181,7 @@ function draw() {
     }
   }
   else if (state === 7) {
-    background(0,191,255);
+    background(0, 191, 255);
     beach();
     back();
     if (Gone.isDone()) {
@@ -189,13 +189,13 @@ function draw() {
     }
   }
   else if (state === 8) {
-    background(0,191,255);
+    background(0, 191, 255);
     glide();
     beach();
     back();
   }
   else if (state === 9) {
-    background(0,191,255);
+    background(0, 191, 255);
     beach();
     gNameAndclass();
     back();
@@ -204,7 +204,7 @@ function draw() {
     }
   }
   else if (state === 10) {
-    background(0,191,255);
+    background(0, 191, 255);
     beach();
     back();
   }
@@ -216,8 +216,8 @@ function draw() {
   }
 }
 
-function maskMenu(){
-  let buttonWidth = windowWidth/2;
+function maskMenu() {
+  let buttonWidth = windowWidth / 2;
   let buttonHeight = windowHeight;
   let leftSide = 100;
   let topSide = 0;
@@ -227,7 +227,7 @@ function maskMenu(){
   Rani = false;
   showTitleM = false;
 
-  fill(255,0,0);
+  fill(255, 0, 0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
     Rani = true;
@@ -244,14 +244,14 @@ function maskMenu(){
   rect(leftSide, topSide, buttonWidth, buttonHeight);
   fill(maskColor);
   textSize(100);
-  textAlign(CENTER,CENTER);
-  text("Beneath the Mask",windowWidth/2 - 600,windowHeight/2);
+  textAlign(CENTER, CENTER);
+  text("Beneath the Mask", windowWidth / 2 - 600, windowHeight / 2);
 }
 
-function glideMenu(){
-  let buttonWidth = windowWidth/2;
+function glideMenu() {
+  let buttonWidth = windowWidth / 2;
   let buttonHeight = windowHeight;
-  let leftSide = windowWidth/2;
+  let leftSide = windowWidth / 2;
   let topSide = 0;
   let rightSide = leftSide + buttonWidth;
   let bottomSide = topSide + buttonHeight;
@@ -259,10 +259,10 @@ function glideMenu(){
   Cani = false;
   showTitleG = false;
 
-  fill(255,255,0);
+  fill(255, 255, 0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
-    fill(0,191,255);
-    glideColor = 255,255,224;
+    fill(0, 191, 255);
+    glideColor = 255, 255, 224;
     showTitleG = true;
     Cani = true;
     if (mouseIsPressed) {
@@ -276,11 +276,11 @@ function glideMenu(){
   rect(leftSide, topSide, buttonWidth, buttonHeight);
   fill(glideColor);
   textSize(100);
-  textAlign(CENTER,CENTER);
-  text("Glide",windowWidth/2 + 700,windowHeight/2);
+  textAlign(CENTER, CENTER);
+  text("Glide", windowWidth / 2 + 700, windowHeight / 2);
 }
 
-function back(){
+function back() {
   let buttonWidth = 100;
   let buttonHeight = 100;
   let leftSide = 0;
@@ -307,36 +307,36 @@ function back(){
   rect(leftSide, topSide, buttonWidth, buttonHeight);
   fill(backColor);
   textSize(25);
-  textAlign(CENTER,CENTER);
-  text("Back",50,50);
+  textAlign(CENTER, CENTER);
+  text("Back", 50, 50);
 }
 
-function beach(){
+function beach() {
   push();
   rectMode(LEFT);
-  fill(244,220,181);
-  rect(0,windowHeight/2 + 200,windowWidth,windowHeight);
+  fill(244, 220, 181);
+  rect(0, windowHeight / 2 + 200, windowWidth, windowHeight);
   pop();
 }
 
-function bell(){
+function bell() {
   grow = grow + 4;
   if (grow > 200) {
     grow = 0;
-    bellPosX = random(windowWidth/2 + 200,windowWidth);
-    bellPosY = random(200,windowHeight - 200);
+    bellPosX = random(windowWidth / 2 + 200, windowWidth);
+    bellPosY = random(200, windowHeight - 200);
   }
   push();
   strokeWeight(5);
-  stroke(255,255,0);
+  stroke(255, 255, 0);
   noFill();
-  ellipse(bellPosX,bellPosY,grow,grow);
+  ellipse(bellPosX, bellPosY, grow, grow);
   pop();
 }
 
-function glide(){
+function glide() {
   textAlign(CENTER, CENTER);
-  fill(255,255,0);
+  fill(255, 255, 0);
   textSize(100);
   text("CLICK TO PLAY", width / 2, height / 2);
   if (mouseIsPressed) {
@@ -347,33 +347,33 @@ function glide(){
   }
 }
 
-function rainAni(){
+function rainAni() {
   y = y + random(50, 400);
   y2 = y2 + random(50, 400);
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
-    x = random(windowWidth/2 - 590, windowWidth/2 - 110);
+    x = random(windowWidth / 2 - 590, windowWidth / 2 - 110);
   }
   push();
   strokeWeight(2);
-  stroke(255,0,0);
-  line(x,y,x,y2);
+  stroke(255, 0, 0);
+  line(x, y, x, y2);
   pop();
 }
 
-function MenuRainAni(){
+function MenuRainAni() {
   y = y + random(50, 400);
   y2 = y2 + random(50, 400);
   if (y > windowHeight) {
     y = -200;
     y2 = -100;
-    x = random(100, windowWidth/2);
+    x = random(100, windowWidth / 2);
   }
   push();
   strokeWeight(5);
-  stroke(255,0,0);
-  line(x,y,x,y2);
+  stroke(255, 0, 0);
+  line(x, y, x, y2);
   pop();
 }
 
@@ -381,29 +381,29 @@ function windowM() {
   push();
   fill(255);
   rectMode(CORNER);
-  rect(0,0,windowWidth,windowHeight/2 - 390);//TOP side
-  rect(0,0,windowWidth/2 - 590,windowHeight);//LEFT side
-  rect(0,windowHeight/2 + 390,windowWidth,windowHeight);//BOTTOM side
-  rect(windowWidth/2 - 110,0,windowWidth,windowHeight);//RIGHT side
+  rect(0, 0, windowWidth, windowHeight / 2 - 390); //TOP side
+  rect(0, 0, windowWidth / 2 - 590, windowHeight); //LEFT side
+  rect(0, windowHeight / 2 + 390, windowWidth, windowHeight); //BOTTOM side
+  rect(windowWidth / 2 - 110, 0, windowWidth, windowHeight); //RIGHT side
   pop();
   fill(0);
   noStroke();
   rectMode(CORNER);
-  rect(0,0,windowWidth,windowHeight/2 - 400);//TOP side
-  rect(0,0,windowWidth/2 - 600,windowHeight);//LEFT side
-  rect(0,windowHeight/2 + 400,windowWidth,windowHeight);//BOTTOM side
-  rect(windowWidth/2 - 100,0,windowWidth,windowHeight);//RIGHT side
+  rect(0, 0, windowWidth, windowHeight / 2 - 400); //TOP side
+  rect(0, 0, windowWidth / 2 - 600, windowHeight); //LEFT side
+  rect(0, windowHeight / 2 + 400, windowWidth, windowHeight); //BOTTOM side
+  rect(windowWidth / 2 - 100, 0, windowWidth, windowHeight); //RIGHT side
 }
 
 function mask() {
   textAlign(LEFT, CENTER);
-  fill(255,0,0);
+  fill(255, 0, 0);
   textSize(50);
   text("CLICK TO PLAY", width / 2 + 200, height / 2);
   if (mouseIsPressed) {
     state = 4;
     timerTHREE = new Timer(12500);
-    maskENDS = new Timer (279000);
+    maskENDS = new Timer(279000);
     //Verse 1//
     Vone = new Timer(25500);
     Vtwo = new Timer(29000);
@@ -415,14 +415,14 @@ function mask() {
     Veight = new Timer(48000);
 
     // Chorus //
-    Cone = new Timer (51000);
-    Ctwo = new Timer (55000);
-    Cthree = new Timer (58000);
-    Cfour = new Timer (61000);
-    Cfive = new Timer (64000);
-    Csix = new Timer (68000);
-    Cseven = new Timer (71000);
-    Ceight = new Timer (74000);
+    Cone = new Timer(51000);
+    Ctwo = new Timer(55000);
+    Cthree = new Timer(58000);
+    Cfour = new Timer(61000);
+    Cfive = new Timer(64000);
+    Csix = new Timer(68000);
+    Cseven = new Timer(71000);
+    Ceight = new Timer(74000);
 
     // hidetext //
     hidetext = new Timer(80000);
@@ -486,17 +486,17 @@ function mask() {
 function nameAndclass() {
   textAlign(LEFT, CENTER);
   textLeading(20);
-  fill(255,0,0);
+  fill(255, 0, 0);
   textSize(50);
   text("McRaven Tuazon\nCS30", width / 2 + 200, height / 2);
 }
 
-function gNameAndclass(){
+function gNameAndclass() {
   tGrow = tGrow + 0.5;
   push();
   textAlign(CENTER, CENTER);
   textLeading(20);
-  fill(255,255,0);
+  fill(255, 255, 0);
   textSize(tGrow);
   text("McRaven Tuazon\nCS30", width / 2, height / 2);
   pop();
@@ -505,17 +505,17 @@ function gNameAndclass(){
 function nameSongAndsinger() {
   textAlign(LEFT, CENTER);
   textLeading(20);
-  fill(255,0,0);
+  fill(255, 0, 0);
   textSize(50);
   text("Beneath the Mask\nLyn Inaizumi", width / 2 + 200, height / 2);
 }
 
-function lyrics(){
+function lyrics() {
   // settings of lyrics
   textAlign(LEFT, CENTER);
-  fill(255,0,0);
+  fill(255, 0, 0);
   textSize(50);
-  text(lyricsText,width / 2 + 200, height / 2);
+  text(lyricsText, width / 2 + 200, height / 2);
 
   // Verse 1 //
   if (Vone.isDone()) {
