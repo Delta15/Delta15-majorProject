@@ -40,8 +40,12 @@ let Gone;
 //gNameAndclass()
 let tGrow = 0;
 
+//gTitleAndProducer()
+let titleSlide = 0;
+let nameSlide = 0;
+
 //Glide time
-let gT,gT2;
+let gT,gT2,gT3;
 
 //main music & rain sound effect for mask()
 let rainSfx, maskMainM, maskENDS;
@@ -98,6 +102,8 @@ function setup() {
   glideMainM.setVolume(1.0);
   cPosX = random(windowWidth / 2 + 200, windowWidth);
   cPosY = random(200, windowHeight - 200);
+  titleSlide = width / 2 - 300;
+  nameSlide = width / 2 + 300;
 }
 
 function windowResized() {
@@ -216,10 +222,21 @@ function draw() {
   else if (state === 11) {
     background(0, 191, 255);
     beach();
+    gAlbum();
+    back();
+    if (gT3.isDone()) {
+      state = 12;
+    }
+  }
+  else if (state === 12) {
+    background(0, 191, 255);
+    beach();
     back();
     if (glideENDS.isDone()) {
       state = 7;
       tGrow = 0;
+      titleSlide = width / 2 - 300;
+      nameSlide = width / 2 + 300;
     }
   }
 }
@@ -304,6 +321,8 @@ function back() {
     if (mouseIsPressed) {
       state = 1;
       tGrow = 0;
+      titleSlide = width / 2 - 300;
+      nameSlide = width / 2 + 300;
       button.play();
       maskMainM.stop();
       rainSfx.stop();
@@ -350,8 +369,9 @@ function glide() {
   if (mouseIsPressed) {
     state = 9;
     glideMainM.play();
-    gT = new Timer(6300);
-    gT2 = new Timer(20630);
+    gT = new Timer(7222);
+    gT2 = new Timer(14600);
+    gT3 = new Timer(21355);
     glideENDS = new Timer(201000);
   }
 }
@@ -502,7 +522,7 @@ function nameAndclass() {
 
 //name of the programmer and class
 function gNameAndclass() {
-  tGrow = tGrow + 0.5;
+  tGrow = tGrow + 0.4;
   push();
   textAlign(CENTER, CENTER);
   textLeading(20);
@@ -514,19 +534,37 @@ function gNameAndclass() {
 
 //name of song,producer and album name
 function gTitleAndProducer(){
+  titleSlide = titleSlide + 0.3;
+  nameSlide = nameSlide - 0.3;
   push();
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(100);
-  text("Stephen Walking", width / 2 - 300, height / 2 - 200);
+  text("Stephen Walking", titleSlide, height / 2 - 100);
   pop();
   push();
   textAlign(CENTER, CENTER);
   fill(255, 255, 0);
   textSize(100);
-  text("Glide", width / 2 + 300, height / 2);
+  text("Glide", nameSlide, height / 2);
   pop();
+}
 
+function gAlbum(){
+  push();
+  textAlign(CENTER, CENTER);
+  fill(255, 255, 0);
+  textSize(100);
+  text("Rocket League", windowWidth/2 - 100, height / 2 - 100);
+  pop();
+  textSize(100);
+  text("X",windowWidth/2,windowHeight/2);
+  push();
+  textAlign(CENTER, CENTER);
+  fill(255, 255, 0);
+  textSize(100);
+  text("Monstercat\nVol.3", windowWidth/2 + 100, height / 2 + 100);
+  pop();
 }
 
 //Name of song and singer for mask()
