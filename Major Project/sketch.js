@@ -44,6 +44,10 @@ let tGrow = 0;
 let titleSlide = 0;
 let nameSlide = 0;
 
+//gAlbum()
+let gAl_down = 0;
+let gAl_up = 0;
+
 //Glide time
 let gT,gT2,gT3;
 
@@ -104,6 +108,8 @@ function setup() {
   cPosY = random(200, windowHeight - 200);
   titleSlide = width / 2 - 300;
   nameSlide = width / 2 + 300;
+  gAl_down = height / 2 - 200;
+  gAl_up =  height / 2 + 200;
 }
 
 function windowResized() {
@@ -237,6 +243,8 @@ function draw() {
       tGrow = 0;
       titleSlide = width / 2 - 300;
       nameSlide = width / 2 + 300;
+      gAl_down = height / 2 - 200;
+      gAl_up =  height / 2 + 200;
     }
   }
 }
@@ -323,6 +331,8 @@ function back() {
       tGrow = 0;
       titleSlide = width / 2 - 300;
       nameSlide = width / 2 + 300;
+      gAl_down = height / 2 - 200;
+      gAl_up =  height / 2 + 200;
       button.play();
       maskMainM.stop();
       rainSfx.stop();
@@ -342,7 +352,7 @@ function beach() {
   push();
   rectMode(LEFT);
   fill(237, 201, 175);
-  rect(0, windowHeight / 2 + 200, windowWidth, windowHeight);
+  rect(0, windowHeight / 2 + 300, windowWidth, windowHeight);
   pop();
 }
 
@@ -511,7 +521,7 @@ function mask() {
     maskMainM.play();
   }
 }
-//Name and Class
+//Name and Class for mask()
 function nameAndclass() {
   textAlign(LEFT, CENTER);
   textLeading(20);
@@ -520,7 +530,7 @@ function nameAndclass() {
   text("McRaven Tuazon\nCS30", width / 2 + 200, height / 2);
 }
 
-//name of the programmer and class
+//name of the programmer and class for glide()
 function gNameAndclass() {
   tGrow = tGrow + 0.4;
   push();
@@ -532,7 +542,7 @@ function gNameAndclass() {
   pop();
 }
 
-//name of song,producer and album name
+//name of song and producer's name for glide()
 function gTitleAndProducer(){
   titleSlide = titleSlide + 0.3;
   nameSlide = nameSlide - 0.3;
@@ -549,21 +559,24 @@ function gTitleAndProducer(){
   text("Glide", nameSlide, height / 2);
   pop();
 }
-
+//the name of the Album for glide()
 function gAlbum(){
+  gAl_down = gAl_down + 0.5;
+  gAl_up = gAl_up - 0.5;
   push();
-  textAlign(CENTER, CENTER);
-  fill(255, 255, 0);
+  textAlign(CENTER, LEFT);
+  fill(255);
   textSize(100);
-  text("Rocket League", windowWidth/2 - 100, height / 2 - 100);
+  text("Rocket League", windowWidth/2 - 400, gAl_down);
   pop();
+  textAlign(CENTER,CENTER);
   textSize(100);
   text("X",windowWidth/2,windowHeight/2);
   push();
-  textAlign(CENTER, CENTER);
+  textAlign(CENTER, RIGHT);
   fill(255, 255, 0);
   textSize(100);
-  text("Monstercat\nVol.3", windowWidth/2 + 100, height / 2 + 100);
+  text("Monstercat\nVol.3", windowWidth/2 + 350, gAl_up);
   pop();
 }
 
