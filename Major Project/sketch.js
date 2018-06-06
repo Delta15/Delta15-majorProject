@@ -41,8 +41,8 @@ let Gone;
 let tGrow = 0;
 
 //gTitleAndProducer()
-let titleSlide = 0;
 let nameSlide = 0;
+let titleSlide = 0;
 
 //gAlbum()
 let gAl_down = 0;
@@ -106,8 +106,8 @@ function setup() {
   glideMainM.setVolume(1.0);
   cPosX = random(windowWidth / 2 + 200, windowWidth);
   cPosY = random(200, windowHeight - 200);
-  titleSlide = width / 2 - 300;
-  nameSlide = width / 2 + 300;
+  nameSlide = width / 2 - 300;
+  titleSlide = width / 2 + 300;
   gAl_down = height / 2 - 200;
   gAl_up =  height / 2 + 200;
 }
@@ -241,8 +241,8 @@ function draw() {
     if (glideENDS.isDone()) {
       state = 7;
       tGrow = 0;
-      titleSlide = width / 2 - 300;
-      nameSlide = width / 2 + 300;
+      nameSlide = width / 2 - 300;
+      titleSlide = width / 2 + 300;
       gAl_down = height / 2 - 200;
       gAl_up =  height / 2 + 200;
     }
@@ -250,7 +250,7 @@ function draw() {
 }
 
 function maskMenu() {
-  let buttonWidth = windowWidth / 2;
+  let buttonWidth = windowWidth / 2 - 100;
   let buttonHeight = windowHeight;
   let leftSide = 100;
   let topSide = 0;
@@ -329,8 +329,8 @@ function back() {
     if (mouseIsPressed) {
       state = 1;
       tGrow = 0;
-      titleSlide = width / 2 - 300;
-      nameSlide = width / 2 + 300;
+      nameSlide = width / 2 - 300;
+      titleSlide = width / 2 + 300;
       gAl_down = height / 2 - 200;
       gAl_up =  height / 2 + 200;
       button.play();
@@ -544,19 +544,19 @@ function gNameAndclass() {
 
 //name of song and producer's name for glide()
 function gTitleAndProducer(){
-  titleSlide = titleSlide + 0.3;
-  nameSlide = nameSlide - 0.3;
+  nameSlide = nameSlide + 0.3;
+  titleSlide = titleSlide - 0.4;
   push();
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(100);
-  text("Stephen Walking", titleSlide, height / 2 - 100);
+  text("Stephen Walking", nameSlide, height / 2 - 100);
   pop();
   push();
   textAlign(CENTER, CENTER);
   fill(255, 255, 0);
   textSize(100);
-  text("Glide", nameSlide, height / 2);
+  text("Glide", titleSlide, height / 2);
   pop();
 }
 //the name of the Album for glide()
@@ -574,6 +574,7 @@ function gAlbum(){
   text("X",windowWidth/2,windowHeight/2);
   push();
   textAlign(CENTER, RIGHT);
+  textLeading(5);
   fill(255, 255, 0);
   textSize(100);
   text("Monstercat\nVol.3", windowWidth/2 + 350, gAl_up);
