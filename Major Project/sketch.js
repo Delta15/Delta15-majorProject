@@ -561,8 +561,8 @@ function gTitleAndProducer(){
 }
 //the name of the Album for glide()
 function gAlbum(){
-  gAl_down = gAl_down + 0.5;
-  gAl_up = gAl_up - 0.5;
+  gAl_down = gAl_down + 0.6;
+  gAl_up = gAl_up - 0.6;
   push();
   textAlign(CENTER, LEFT);
   fill(255);
