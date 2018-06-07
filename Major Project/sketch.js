@@ -545,7 +545,7 @@ function gNameAndclass() {
 //name of song and producer's name for glide()
 function gTitleAndProducer(){
   nameSlide = nameSlide + 0.3;
-  titleSlide = titleSlide - 0.6;
+  titleSlide = titleSlide - 0.4;
   push();
   textAlign(CENTER, CENTER);
   fill(255);
@@ -569,9 +569,12 @@ function gAlbum(){
   textSize(100);
   text("Rocket League", windowWidth/2 - 400, gAl_down);
   pop();
+  push();
   textAlign(CENTER,CENTER);
+  fill(0);
   textSize(100);
   text("X",windowWidth/2,windowHeight/2);
+  pop();
   push();
   textAlign(CENTER, RIGHT);
   textLeading(5);

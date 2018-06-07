@@ -18,6 +18,8 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   state = 1;
   button.setVolume(0.5);
+  preV_mask.setVolume(1.0);
+  preV_glide.setVolume(1.0);
 }
 
 function windowResized() {
@@ -70,12 +72,18 @@ function maskMenu(){
   fill(255,0,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
+    if (!preV_mask.isLooping()) {
+      preV_mask.loop();
+    }
     showTitleM = true;
     maskColor = 255;
     if (mouseIsPressed) {
       button.play();
       state = 2;
     }
+  }
+  else {
+    preV_mask.stop();
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
@@ -98,12 +106,18 @@ function glideMenu(){
   fill(255,255,0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0,191,255);
+    if (!preV_glide.isLooping()) {
+      preV_glide.loop();
+    }
     showTitleG = true;
     glideColor = 255,255,224;
     if (mouseIsPressed) {
       button.play();
       state = 3;
     }
+  }
+  else {
+    preV_glide.stop();
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
