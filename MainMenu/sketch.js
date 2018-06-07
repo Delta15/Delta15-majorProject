@@ -60,7 +60,7 @@ function draw() {
 }
 
 function maskMenu(){
-  let buttonWidth = windowWidth/2;
+  let buttonWidth = windowWidth/2 - 100;
   let buttonHeight = windowHeight;
   let leftSide = 100;
   let topSide = 0;
