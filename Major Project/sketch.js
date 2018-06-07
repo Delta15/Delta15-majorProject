@@ -125,7 +125,7 @@ function draw() {
       MenuRainAni();
     }
     if (Cani === true) {
-      bell();
+      ball();
     }
     if (showTitleG === true) {
       push();
@@ -356,7 +356,7 @@ function beach() {
   pop();
 }
 
-function bell() {
+function ball() {
   grow = grow + 4;
   if (grow > 200) {
     grow = 0;
@@ -381,7 +381,7 @@ function glide() {
     glideMainM.play();
     gT = new Timer(7222);
     gT2 = new Timer(14600);
-    gT3 = new Timer(21355);
+    gT3 = new Timer(21561);
     glideENDS = new Timer(201000);
   }
 }
@@ -545,7 +545,7 @@ function gNameAndclass() {
 //name of song and producer's name for glide()
 function gTitleAndProducer(){
   nameSlide = nameSlide + 0.3;
-  titleSlide = titleSlide - 0.4;
+  titleSlide = titleSlide - 0.6;
   push();
   textAlign(CENTER, CENTER);
   fill(255);
