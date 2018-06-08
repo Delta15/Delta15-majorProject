@@ -38,6 +38,9 @@ let Cani = false;
 let beachSfx, glideMainM, glideENDS;
 let Gone;
 
+//sun()
+let sunRise = 0;
+
 //gNameAndclass()
 let tGrow = 0;
 
@@ -115,6 +118,7 @@ function setup() {
   titleSlide = width / 2 + 300;
   gAl_down = height / 2 - 200;
   gAl_up =  height / 2 + 200;
+  sunRise = 900;
 }
 
 function windowResized() {
@@ -241,6 +245,7 @@ function draw() {
   }
   else if (state === 12) {
     background(0, 191, 255);
+    sun();
     beach();
     back();
     if (glideENDS.isDone()) {
@@ -250,6 +255,7 @@ function draw() {
       titleSlide = width / 2 + 300;
       gAl_down = height / 2 - 200;
       gAl_up =  height / 2 + 200;
+      sunRise = 900;
     }
   }
 }
@@ -352,6 +358,7 @@ function back() {
       titleSlide = width / 2 + 300;
       gAl_down = height / 2 - 200;
       gAl_up =  height / 2 + 200;
+      sunRise = 900;
       button.play();
       maskMainM.stop();
       rainSfx.stop();
@@ -365,6 +372,19 @@ function back() {
   textSize(25);
   textAlign(CENTER, CENTER);
   text("Back", 50, 50);
+}
+
+function sun(){
+  sunRise = sunRise - 30;
+  if (sunRise < 0) {
+    sunRise = 0;
+  }
+  push();
+  translate(windowWidth/2,windowHeight/2 + 300);
+  fill(255,255,0);
+  ellipseMode(CENTER);
+  ellipse(0,sunRise,900,900);
+  pop();
 }
 
 function beach() {
