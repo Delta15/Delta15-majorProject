@@ -18,6 +18,7 @@ let maskColor = 0;
 let glideColor = 255;
 let showTitleM = false;
 let showTitleG = false;
+let preV_glide,preV_mask;
 
 //rainAni() settings
 let y = 0;
@@ -85,6 +86,8 @@ let credits;
 
 function preload() {
   button = loadSound("Music&Sounds/button.mp3");
+  preV_glide = loadSound("Music&Sounds/Preview_Glide.mp3");
+  preV_mask = loadSound("Music&Sounds/Preview_mask.mp3");
   //A looping sound of rain
   rainSfx = loadSound("Music&Sounds/rain.wav");
   //music 4 minute 39 seconds or 279000 millisecond
@@ -102,6 +105,8 @@ function setup() {
   rainSfx.setVolume(0.4);
   beachSfx.setVolume(0.5);
   button.setVolume(0.5);
+  preV_mask.setVolume(1.0);
+  preV_glide.setVolume(1.0);
   maskMainM.setVolume(1.0);
   glideMainM.setVolume(1.0);
   cPosX = random(windowWidth / 2 + 200, windowWidth);
@@ -263,15 +268,22 @@ function maskMenu() {
   fill(255, 0, 0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0);
+    if (!preV_mask.isLooping()) {
+      preV_mask.loop();
+    }
     Rani = true;
     showTitleM = true;
     maskColor = 255;
     if (mouseIsPressed) {
       timerONE = new Timer(5000);
       button.play();
+      preV_mask.stop();
       state = 2;
       rainSfx.loop();
     }
+  }
+  else {
+    preV_mask.stop();
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
@@ -295,6 +307,9 @@ function glideMenu() {
   fill(255, 255, 0);
   if (mouseX >= leftSide && mouseX <= rightSide && mouseY >= topSide && mouseY <= bottomSide) {
     fill(0, 191, 255);
+    if (!preV_glide.isLooping()) {
+      preV_glide.loop();
+    }
     glideColor = 255, 255, 224;
     showTitleG = true;
     Cani = true;
@@ -302,8 +317,12 @@ function glideMenu() {
       Gone = new Timer(5000);
       button.play();
       beachSfx.loop();
+      preV_glide.stop();
       state = 7;
     }
+  }
+  else {
+    preV_glide.stop();
   }
   noStroke();
   rect(leftSide, topSide, buttonWidth, buttonHeight);
