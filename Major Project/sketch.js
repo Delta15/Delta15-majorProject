@@ -40,6 +40,7 @@ let Gone;
 
 //sun()
 let sunRise = 0;
+let sunDown;
 
 //gNameAndclass()
 let tGrow = 0;
@@ -375,7 +376,7 @@ function back() {
 }
 
 function sun(){
-  sunRise = sunRise - 30;
+  sunRise = sunRise - 20;
   if (sunRise < 0) {
     sunRise = 0;
   }
@@ -421,6 +422,7 @@ function glide() {
     gT = new Timer(7222);
     gT2 = new Timer(14600);
     gT3 = new Timer(21561);
+    sunDown = new Timer(196000);
     glideENDS = new Timer(201000);
   }
 }
