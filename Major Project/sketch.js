@@ -110,7 +110,7 @@ function setup() {
   state = 1;
   rainSfx.setVolume(0.4);
   beachSfx.setVolume(0.5);
-  button.setVolume(0.5);
+  button.setVolume(0.4);
   preV_mask.setVolume(1.0);
   preV_glide.setVolume(1.0);
   maskMainM.setVolume(1.0);
