@@ -40,6 +40,7 @@ let Gone;
 
 //sun()
 let sunRise = 0;
+let TimersunRise;
 let sunDown;
 
 //gNameAndclass()
@@ -53,8 +54,9 @@ let titleSlide = 0;
 let gAl_down = 0;
 let gAl_up = 0;
 
-//Glide time
+//Glide
 let gT,gT2,gT3;
+let Timerwater, TimerskyBall;
 
 //main music & rain sound effect for mask()
 let rainSfx, maskMainM, maskENDS;
@@ -204,22 +206,19 @@ function draw() {
     }
   }
   else if (state === 7) {
-    background(0, 191, 255);
-    beach();
+    background(255,105,180);
     back();
     if (Gone.isDone()) {
       state = 8;
     }
   }
   else if (state === 8) {
-    background(0, 191, 255);
+    background(255,105,180);
     glide();
-    beach();
     back();
   }
   else if (state === 9) {
-    background(0, 191, 255);
-    beach();
+    background(255,105,180);
     gNameAndclass();
     back();
     if (gT.isDone()) {
@@ -227,8 +226,7 @@ function draw() {
     }
   }
   else if (state === 10) {
-    background(0, 191, 255);
-    beach();
+    background(255,105,180);
     gTitleAndProducer();
     back();
     if (gT2.isDone()) {
@@ -236,8 +234,7 @@ function draw() {
     }
   }
   else if (state === 11) {
-    background(0, 191, 255);
-    beach();
+    background(255,105,180);
     gAlbum();
     back();
     if (gT3.isDone()) {
@@ -245,9 +242,16 @@ function draw() {
     }
   }
   else if (state === 12) {
-    background(0, 191, 255);
-    sun();
-    beach();
+    background(255,105,180);
+    if (TimerskyBall.isDone()) {
+      skyBall();
+    }
+    if (TimersunRise.isDone()) {
+      sun();
+    }
+    if (Timerwater.isDone()) {
+      water();
+    }
     back();
     if (glideENDS.isDone()) {
       state = 7;
@@ -376,7 +380,7 @@ function back() {
 }
 
 function sun(){
-  sunRise = sunRise - 20;
+  sunRise = sunRise - 90;
   if (sunRise < 0) {
     sunRise = 0;
   }
@@ -388,20 +392,35 @@ function sun(){
   pop();
 }
 
-function beach() {
+function water() {
   push();
   rectMode(LEFT);
-  fill(237, 201, 175);
+  fill(0,191,255);
   rect(0, windowHeight / 2 + 300, windowWidth, windowHeight);
   pop();
 }
 
 function ball() {
-  grow = grow + 4;
-  if (grow > 200) {
+  grow = grow + 3;
+  if (grow > 300) {
     grow = 0;
     cPosX = random(windowWidth / 2 + 200, windowWidth);
     cPosY = random(200, windowHeight - 200);
+  }
+  push();
+  strokeWeight(5);
+  stroke(255, 255, 0);
+  noFill();
+  ellipse(cPosX, cPosY, grow, grow);
+  pop();
+}
+
+function skyBall() {
+  grow = grow + 2;
+  if (grow > 500) {
+    grow = 0;
+    cPosX = random(100, windowWidth - 100);
+    cPosY = random(100, windowHeight / 2 + 300);
   }
   push();
   strokeWeight(5);
@@ -422,6 +441,9 @@ function glide() {
     gT = new Timer(7222);
     gT2 = new Timer(14600);
     gT3 = new Timer(21561);
+    Timerwater = new Timer(22195);
+    TimersunRise = new Timer(22634);
+    TimerskyBall = new Timer(23120);
     sunDown = new Timer(196000);
     glideENDS = new Timer(201000);
   }
@@ -588,16 +610,22 @@ function gTitleAndProducer(){
   nameSlide = nameSlide + 0.3;
   titleSlide = titleSlide - 0.4;
   push();
+  fill(0);
+  rectMode(CENTER);
+  rect(nameSlide,height/2 - 100,1000,400);
   textAlign(CENTER, CENTER);
   fill(255);
   textSize(100);
   text("Stephen Walking", nameSlide, height / 2 - 100);
   pop();
   push();
+  fill(153,50,204);
+  rectMode(CENTER);
+  rect(titleSlide,height/2 + 50,900,100);
   textAlign(CENTER, CENTER);
   fill(255, 255, 0);
   textSize(100);
-  text("Glide", titleSlide, height / 2);
+  text("Glide", titleSlide, height / 2 + 50);
   pop();
 }
 //the name of the Album for glide()
@@ -605,6 +633,19 @@ function gAlbum(){
   gAl_down = gAl_down + 0.6;
   gAl_up = gAl_up - 0.6;
   push();
+  fill(153,50,204);
+  rectMode(CENTER);
+  rect(windowWidth/2 + 350,gAl_up,1000,700);
+  textAlign(CENTER, RIGHT);
+  textLeading(5);
+  fill(255, 255, 0);
+  textSize(100);
+  text("Monstercat\nVol.3", windowWidth/2 + 350, gAl_up);
+  pop();
+  push();
+  fill(0);
+  rectMode(CENTER);
+  rect(windowWidth/2 - 400,gAl_down,700,1000);
   textAlign(CENTER, LEFT);
   fill(255);
   textSize(100);
@@ -615,13 +656,6 @@ function gAlbum(){
   fill(0);
   textSize(100);
   text("X",windowWidth/2,windowHeight/2);
-  pop();
-  push();
-  textAlign(CENTER, RIGHT);
-  textLeading(5);
-  fill(255, 255, 0);
-  textSize(100);
-  text("Monstercat\nVol.3", windowWidth/2 + 350, gAl_up);
   pop();
 }
 
