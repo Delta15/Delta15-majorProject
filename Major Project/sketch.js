@@ -25,7 +25,7 @@ let y = 0;
 let y2 = 100;
 let x = 150;
 
-//ball() settings
+//ball() and skyBall() settings
 let grow = 0;
 let cPosX = 0;
 let cPosY = 0;
@@ -60,7 +60,6 @@ let Timerwater, TimerskyBall;
 
 //main music & rain sound effect for mask()
 let rainSfx, maskMainM, maskENDS;
-
 let timerONE, timerTWO, timerTHREE, timerFOUR, timerFIVE;
 
 //text that change when timer is done
@@ -416,7 +415,7 @@ function ball() {
 }
 
 function skyBall() {
-  grow = grow + 2;
+  grow = grow + 4;
   if (grow > 500) {
     grow = 0;
     cPosX = random(100, windowWidth - 100);
