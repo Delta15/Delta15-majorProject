@@ -1,3 +1,1 @@
 # majorProject
-
-Thing.
